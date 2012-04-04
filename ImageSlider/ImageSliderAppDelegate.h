@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class GraphiCalcViewController;
+@class ImageSliderViewController;
 
-@interface GraphiCalcAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ImageSliderAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) GraphiCalcViewController *viewController;
+@property (strong, nonatomic) ImageSliderViewController *viewController;
 
 @end

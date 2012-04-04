@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GraphiCalcViewController : UIViewController
+@interface ImageSliderViewController : UIViewController
 
 @end

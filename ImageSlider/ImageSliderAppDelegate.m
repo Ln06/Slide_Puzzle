@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GraphiCalcAppDelegate.h"
+#import "ImageSliderAppDelegate.h"
 
-#import "GraphiCalcViewController.h"
+#import "ImageSliderViewController.h"
 
-@implementation GraphiCalcAppDelegate
+@implementation ImageSliderAppDelegate
 
 @synthesize window = _window;
 @synthesize viewController = _viewController;
@@ -26,7 +26,7 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.viewController = [[[GraphiCalcViewController alloc] initWithNibName:@"GraphiCalcViewController" bundle:nil] autorelease];
+    self.viewController = [[[GraphiCalcViewController alloc] initWithNibName:@"ImageSliderViewController" bundle:nil] autorelease];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;

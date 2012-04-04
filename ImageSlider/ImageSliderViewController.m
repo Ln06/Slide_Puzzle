@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GraphiCalcViewController.h"
+#import "ImageSliderViewController.h"
 
-@implementation GraphiCalcViewController
+@implementation ImageSliderViewController
 
 - (void)didReceiveMemoryWarning
 {
