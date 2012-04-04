@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">10K549</string>
+		<string key="IBDocument.SystemVersion">11D50b</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
-		<string key="IBDocument.AppKitVersion">1038.36</string>
-		<string key="IBDocument.HIToolboxVersion">461.00</string>
+		<string key="IBDocument.AppKitVersion">1138.32</string>
+		<string key="IBDocument.HIToolboxVersion">568.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">933</string>
@@ -39,6 +39,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{107, 96}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4yNDgxNDIzNTAzIDAuNzgyNjA4Njk1NyAwLjM0MjU3NjI3MDQAA</bytes>
@@ -52,6 +53,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{107, 0}, {107, 96}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC43ODI2MDg2OTU3IDAuNTA1OTM1ODI0OSAwLjU2MTcwNzM0NDMAA</bytes>
@@ -65,6 +67,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{213, 0}, {107, 96}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC40NTAzNTc5NDE4IDAuMTkxOTcwOTQ4MiAwLjc4MjYwODY5NTcAA</bytes>
@@ -78,6 +81,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{0, 96}, {107, 96}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC43ODI2MDg2OTU3IDAuMzE0ODMyMTM3NyAwLjcxNzk3NjI5NTYAA</bytes>
@@ -91,6 +95,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{107, 96}, {107, 96}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4yNzI0NDkxMjkyIDAuNzgyNjA4Njk1NyAwLjMzNDU1MjExNAA</bytes>
@@ -104,6 +109,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{213, 96}, {107, 96}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC43ODI2MDg2OTU3IDAuMjAyMzg0MzExNiAwLjE5MzE1NzUyNDkAA</bytes>
@@ -117,6 +123,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{0, 190}, {107, 96}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4yMzA1Mjk2NzYzIDAuMjU2ODA2MDc5MiAwLjc4MjYwODY5NTcAA</bytes>
@@ -130,6 +137,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{107, 190}, {107, 96}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC40NTI5NzQ2MjQ2IDAuNzgyNjA4Njk1NyAwLjM2NzAzNzQyNjcAA</bytes>
@@ -143,6 +151,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{213, 190}, {107, 96}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC40MTA5MTA0NTI5IDAuNzgyNjA4Njk1NyAwLjcyNzAyMzUzNjYAA</bytes>
@@ -156,6 +165,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{0, 286}, {107, 96}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4zNTgxNDcxOTU1IDAuNDkwMzc2NzU3NyAwLjc4MjYwODY5NTcAA</bytes>
@@ -169,6 +179,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{107, 286}, {107, 96}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC43Nzc4OTQxODU1IDAuNzczMTc5Njc1MyAwLjc4MjYwODY5NTcAA</bytes>
@@ -182,6 +193,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{213, 286}, {107, 96}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="875797333">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -193,25 +205,13 @@
 				</array>
 				<string key="NSFrame">{{0, 64}, {320, 416}}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="IBUIBackgroundColor" ref="875797333"/>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<object class="IBUISimulatedNavigationBarMetrics" key="IBUISimulatedTopBarMetrics">
 					<bool key="IBUIPrompted">NO</bool>
 				</object>
-				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-			</object>
-			<object class="IBUIView" id="855185140">
-				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">274</int>
-				<string key="NSFrame">{{0, 20}, {313, 61}}</string>
-				<reference key="NSSuperview"/>
-				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MC42NDE3OTA1NDQ1IDAuMzcxMjE0MTI4NCAwLjc4MjYwODY5NTcAA</bytes>
-				</object>
-				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 		</array>
@@ -325,11 +325,6 @@
 						<reference key="object" ref="374128625"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">21</int>
-						<reference key="object" ref="855185140"/>
-						<reference key="parent" ref="0"/>
-					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -348,7 +343,6 @@
 				<string key="18.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="19.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="20.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="21.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
