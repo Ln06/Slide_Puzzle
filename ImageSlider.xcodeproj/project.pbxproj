@@ -1,0 +1,285 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		958A80A3152310C50001E992 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958A80A2152310C50001E992 /* UIKit.framework */; };
+		958A80A5152310C50001E992 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958A80A4152310C50001E992 /* Foundation.framework */; };
+		958A80A7152310C50001E992 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958A80A6152310C50001E992 /* CoreGraphics.framework */; };
+		958A80AD152310C50001E992 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 958A80AB152310C50001E992 /* InfoPlist.strings */; };
+		958A80AF152310C50001E992 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80AE152310C50001E992 /* main.m */; };
+		958A80B3152310C50001E992 /* GraphiCalcAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80B2152310C50001E992 /* GraphiCalcAppDelegate.m */; };
+		958A80B6152310C50001E992 /* GraphiCalcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80B5152310C50001E992 /* GraphiCalcViewController.m */; };
+		958A80B9152310C50001E992 /* GraphiCalcViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 958A80B7152310C50001E992 /* GraphiCalcViewController.xib */; };
+		958A80C8152317F40001E992 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80C7152317F30001E992 /* MainMenu.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		958A809E152310C50001E992 /* ImageSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		958A80A2152310C50001E992 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		958A80A4152310C50001E992 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		958A80A6152310C50001E992 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		958A80AA152310C50001E992 /* ImageSlider-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ImageSlider-Info.plist"; sourceTree = "<group>"; };
+		958A80AC152310C50001E992 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		958A80AE152310C50001E992 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		958A80B0152310C50001E992 /* ImageSlider-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImageSlider-Prefix.pch"; sourceTree = "<group>"; };
+		958A80B1152310C50001E992 /* GraphiCalcAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphiCalcAppDelegate.h; sourceTree = "<group>"; };
+		958A80B2152310C50001E992 /* GraphiCalcAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphiCalcAppDelegate.m; sourceTree = "<group>"; };
+		958A80B4152310C50001E992 /* GraphiCalcViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphiCalcViewController.h; sourceTree = "<group>"; };
+		958A80B5152310C50001E992 /* GraphiCalcViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphiCalcViewController.m; sourceTree = "<group>"; };
+		958A80B8152310C50001E992 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GraphiCalcViewController.xib; sourceTree = "<group>"; };
+		958A80C6152317F30001E992 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		958A80C7152317F30001E992 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		958A809B152310C50001E992 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				958A80A3152310C50001E992 /* UIKit.framework in Frameworks */,
+				958A80A5152310C50001E992 /* Foundation.framework in Frameworks */,
+				958A80A7152310C50001E992 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		958A8093152310C50001E992 = {
+			isa = PBXGroup;
+			children = (
+				958A80A8152310C50001E992 /* ImageSlider */,
+				958A80A1152310C50001E992 /* Frameworks */,
+				958A809F152310C50001E992 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		958A809F152310C50001E992 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				958A809E152310C50001E992 /* ImageSlider.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		958A80A1152310C50001E992 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				958A80A2152310C50001E992 /* UIKit.framework */,
+				958A80A4152310C50001E992 /* Foundation.framework */,
+				958A80A6152310C50001E992 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		958A80A8152310C50001E992 /* ImageSlider */ = {
+			isa = PBXGroup;
+			children = (
+				958A80B1152310C50001E992 /* GraphiCalcAppDelegate.h */,
+				958A80B2152310C50001E992 /* GraphiCalcAppDelegate.m */,
+				958A80B4152310C50001E992 /* GraphiCalcViewController.h */,
+				958A80B5152310C50001E992 /* GraphiCalcViewController.m */,
+				958A80B7152310C50001E992 /* GraphiCalcViewController.xib */,
+				958A80A9152310C50001E992 /* Supporting Files */,
+				958A80C6152317F30001E992 /* MainMenu.h */,
+				958A80C7152317F30001E992 /* MainMenu.m */,
+			);
+			path = ImageSlider;
+			sourceTree = "<group>";
+		};
+		958A80A9152310C50001E992 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				958A80AA152310C50001E992 /* ImageSlider-Info.plist */,
+				958A80AB152310C50001E992 /* InfoPlist.strings */,
+				958A80AE152310C50001E992 /* main.m */,
+				958A80B0152310C50001E992 /* ImageSlider-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		958A809D152310C50001E992 /* ImageSlider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 958A80BC152310C50001E992 /* Build configuration list for PBXNativeTarget "ImageSlider" */;
+			buildPhases = (
+				958A809A152310C50001E992 /* Sources */,
+				958A809B152310C50001E992 /* Frameworks */,
+				958A809C152310C50001E992 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageSlider;
+			productName = ImageSlider;
+			productReference = 958A809E152310C50001E992 /* ImageSlider.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		958A8095152310C50001E992 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 958A8098152310C50001E992 /* Build configuration list for PBXProject "ImageSlider" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 958A8093152310C50001E992;
+			productRefGroup = 958A809F152310C50001E992 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				958A809D152310C50001E992 /* ImageSlider */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		958A809C152310C50001E992 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				958A80AD152310C50001E992 /* InfoPlist.strings in Resources */,
+				958A80B9152310C50001E992 /* GraphiCalcViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		958A809A152310C50001E992 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				958A80AF152310C50001E992 /* main.m in Sources */,
+				958A80B3152310C50001E992 /* GraphiCalcAppDelegate.m in Sources */,
+				958A80B6152310C50001E992 /* GraphiCalcViewController.m in Sources */,
+				958A80C8152317F40001E992 /* MainMenu.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		958A80AB152310C50001E992 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				958A80AC152310C50001E992 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		958A80B7152310C50001E992 /* GraphiCalcViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				958A80B8152310C50001E992 /* en */,
+			);
+			name = GraphiCalcViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		958A80BA152310C50001E992 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		958A80BB152310C50001E992 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		958A80BD152310C50001E992 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ImageSlider/ImageSlider-Prefix.pch";
+				INFOPLIST_FILE = "ImageSlider/ImageSlider-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		958A80BE152310C50001E992 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ImageSlider/ImageSlider-Prefix.pch";
+				INFOPLIST_FILE = "ImageSlider/ImageSlider-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		958A8098152310C50001E992 /* Build configuration list for PBXProject "ImageSlider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				958A80BA152310C50001E992 /* Debug */,
+				958A80BB152310C50001E992 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		958A80BC152310C50001E992 /* Build configuration list for PBXNativeTarget "ImageSlider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				958A80BD152310C50001E992 /* Debug */,
+				958A80BE152310C50001E992 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 958A8095152310C50001E992 /* Project object */;
+}
