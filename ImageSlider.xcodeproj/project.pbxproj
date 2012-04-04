@@ -17,6 +17,7 @@
 		958A80B9152310C50001E992 /* ImageSliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 958A80B7152310C50001E992 /* ImageSliderViewController.xib */; };
 		958A80C8152317F40001E992 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80C7152317F30001E992 /* MainMenu.m */; };
 		95C65A9E152C36EE00A01DF6 /* Puzzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C65A9D152C36EE00A01DF6 /* Puzzle.m */; };
+		95C65AAE152C4B8600A01DF6 /* PuzzlePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C65AAD152C4B8600A01DF6 /* PuzzlePiece.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		958A80C7152317F30001E992 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		95C65A9C152C36EE00A01DF6 /* Puzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Puzzle.h; sourceTree = "<group>"; };
 		95C65A9D152C36EE00A01DF6 /* Puzzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Puzzle.m; sourceTree = "<group>"; };
+		95C65AAC152C4B8600A01DF6 /* PuzzlePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PuzzlePiece.h; sourceTree = "<group>"; };
+		95C65AAD152C4B8600A01DF6 /* PuzzlePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzlePiece.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 		958A80A8152310C50001E992 /* ImageSlider */ = {
 			isa = PBXGroup;
 			children = (
+				95C65AAC152C4B8600A01DF6 /* PuzzlePiece.h */,
+				95C65AAD152C4B8600A01DF6 /* PuzzlePiece.m */,
 				95C65A9C152C36EE00A01DF6 /* Puzzle.h */,
 				95C65A9D152C36EE00A01DF6 /* Puzzle.m */,
 				958A80B1152310C50001E992 /* ImageSliderAppDelegate.h */,
@@ -175,6 +180,7 @@
 				958A80B6152310C50001E992 /* ImageSliderViewController.m in Sources */,
 				958A80C8152317F40001E992 /* MainMenu.m in Sources */,
 				95C65A9E152C36EE00A01DF6 /* Puzzle.m in Sources */,
+				95C65AAE152C4B8600A01DF6 /* PuzzlePiece.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

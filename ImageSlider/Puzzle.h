@@ -10,4 +10,10 @@
 
 @interface Puzzle : NSObject
 
+//@property (nonatomic, retain) NSMutableArray *puzzler;
+
+
+
+- (void) addViews: (NSObject *) p;
+
 @end

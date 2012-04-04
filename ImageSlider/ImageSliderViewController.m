@@ -7,22 +7,39 @@
 //
 
 #import "ImageSliderViewController.h"
+#import "Puzzle.h"
+#import "PuzzlePiece.h"
 
+@interface ImageSliderViewController (){
+
+    NSMutableArray *tabView;
+}
+
+@property (nonatomic, retain) Puzzle *puzzle;
+@property (nonatomic,retain) NSMutableArray *tabView;//=[[[NSMutableArray alloc] init] autorelease];
+
+@end
 
 
 @implementation ImageSliderViewController
 
-@synthesize totoView;
+@synthesize puzzle;
+@synthesize tabView;
 
-- (void)didReceiveMemoryWarning
+- (id)init
 {
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
+    self = [super initWithNibName:@"ImageSliderViewController" bundle:nil];
+    if (self) {
+        puzzle = [[Puzzle alloc] init];
+        tabView =[[NSMutableArray alloc] init];
+    }
+    return self;
 }
 
-#pragma mark - View lifecycle
-
-
+- (void)dealloc {
+    [puzzle release];
+    [super dealloc];
+}
 
 - (void)viewDidLoad
 {
@@ -36,17 +53,20 @@
         for (int i=0; i<3; i=i+1) {
             //if(!(j==3 && i==2)){
             if(j!=3 || i!=2){  
-            UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(ox, oy, width, height)];
-            view1.backgroundColor = [UIColor colorWithRed:(arc4random() % 255)/255.0 green:(arc4random() % 255)/255.0 blue:(arc4random() % 255)/255.0 alpha:1];
-            [self.view addSubview:view1];
-            ox+=width;
-            [view1 release];
+                int position = i + j;   //position de l'image (1,2,3,...,3+2)
+                UIView *view1 = [[[UIView alloc] initWithFrame:CGRectMake(ox, oy, width, height)] autorelease];
+                view1.backgroundColor = [UIColor colorWithRed:(arc4random() % 255)/255.0 green:(arc4random() % 255)/255.0 blue:(arc4random() % 255)/255.0 alpha:1];
+                //PuzzlePiece *p = [[[PuzzlePiece alloc] initWithPos:ox :oy :position ] autorelease]; //on créer l'objet qui contiendra les infos
+                [self.view addSubview:view1]; //on rajjoute l'image à notre view
+                [tabView addObject:view1];    //on rajjoute l'image à notre tableau d'image
+                //[puzzle addView: p];          // on rajjoute l'objet contenant les infos a notre tableau d'info
+                ox+=width;
+                [view1 release];
             }
         }
         ox=0;
         oy+=height;
     }
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
@@ -65,10 +85,10 @@
 {
     [super viewDidAppear:animated];
     
-    [UIView animateWithDuration:1.0
+    /*[UIView animateWithDuration:1.0
                      animations:^{
                          self.totoView.center = CGPointMake(self.totoView.center.x + self.totoView.frame.size.width , self.totoView.center.y);
-                     }];
+                     }];*/
 }
 
 - (void)viewWillDisappear:(BOOL)animated
