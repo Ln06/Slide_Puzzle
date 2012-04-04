@@ -1,5 +1,5 @@
 //
-//  GraphiCalcViewController.h
+//  ImageSliderViewController.h
 //  ImageSlider
 //
 //  Created by Marc Chamly on 3/28/12.
@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ImageSliderViewController : UIViewController
+
+@property (nonatomic,retain) IBOutlet UIView *totoView;
 
 @end

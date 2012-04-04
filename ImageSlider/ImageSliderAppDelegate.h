@@ -1,5 +1,5 @@
 //
-//  GraphiCalcAppDelegate.h
+//  ImageSliderAppDelegate.h
 //  ImageSlider
 //
 //  Created by Marc Chamly on 3/28/12.

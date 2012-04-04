@@ -16,6 +16,7 @@
 		958A80B6152310C50001E992 /* ImageSliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80B5152310C50001E992 /* ImageSliderViewController.m */; };
 		958A80B9152310C50001E992 /* ImageSliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 958A80B7152310C50001E992 /* ImageSliderViewController.xib */; };
 		958A80C8152317F40001E992 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80C7152317F30001E992 /* MainMenu.m */; };
+		95C65A9E152C36EE00A01DF6 /* Puzzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C65A9D152C36EE00A01DF6 /* Puzzle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,13 +28,15 @@
 		958A80AC152310C50001E992 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		958A80AE152310C50001E992 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		958A80B0152310C50001E992 /* ImageSlider-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImageSlider-Prefix.pch"; sourceTree = "<group>"; };
-		958A80B1152310C50001E992 /* ImageSliderAppDelegate.h */ = {isa = PBXFileReference; path = ImageSliderAppDelegate.h; sourceTree = "<group>"; };
+		958A80B1152310C50001E992 /* ImageSliderAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageSliderAppDelegate.h; sourceTree = "<group>"; };
 		958A80B2152310C50001E992 /* ImageSliderAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageSliderAppDelegate.m; sourceTree = "<group>"; };
-		958A80B4152310C50001E992 /* ImageSliderViewController.h */ = {isa = PBXFileReference; path = ImageSliderViewController.h; sourceTree = "<group>"; };
+		958A80B4152310C50001E992 /* ImageSliderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageSliderViewController.h; sourceTree = "<group>"; };
 		958A80B5152310C50001E992 /* ImageSliderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageSliderViewController.m; sourceTree = "<group>"; };
 		958A80B8152310C50001E992 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ImageSliderViewController.xib; sourceTree = "<group>"; };
 		958A80C6152317F30001E992 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		958A80C7152317F30001E992 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+		95C65A9C152C36EE00A01DF6 /* Puzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Puzzle.h; sourceTree = "<group>"; };
+		95C65A9D152C36EE00A01DF6 /* Puzzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Puzzle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,8 @@
 		958A80A8152310C50001E992 /* ImageSlider */ = {
 			isa = PBXGroup;
 			children = (
+				95C65A9C152C36EE00A01DF6 /* Puzzle.h */,
+				95C65A9D152C36EE00A01DF6 /* Puzzle.m */,
 				958A80B1152310C50001E992 /* ImageSliderAppDelegate.h */,
 				958A80B2152310C50001E992 /* ImageSliderAppDelegate.m */,
 				958A80B4152310C50001E992 /* ImageSliderViewController.h */,
@@ -169,6 +174,7 @@
 				958A80B3152310C50001E992 /* ImageSliderAppDelegate.m in Sources */,
 				958A80B6152310C50001E992 /* ImageSliderViewController.m in Sources */,
 				958A80C8152317F40001E992 /* MainMenu.m in Sources */,
+				95C65A9E152C36EE00A01DF6 /* Puzzle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

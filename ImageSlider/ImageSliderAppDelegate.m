@@ -1,5 +1,5 @@
     //
-//  GraphiCalcAppDelegate.m
+//  ImageSliderAppDelegate.m
 //  ImageSlider
 //
 //  Created by Marc Chamly on 3/28/12.
@@ -26,7 +26,7 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.viewController = [[[GraphiCalcViewController alloc] initWithNibName:@"ImageSliderViewController" bundle:nil] autorelease];
+    self.viewController = [[[ImageSliderViewController alloc] initWithNibName:@"ImageSliderViewController" bundle:nil] autorelease];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
