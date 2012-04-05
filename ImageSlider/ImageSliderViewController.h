@@ -10,6 +10,5 @@
 
 @interface ImageSliderViewController : UIViewController
 
-@property (nonatomic,retain) IBOutlet UIView *totoView;
 
 @end
