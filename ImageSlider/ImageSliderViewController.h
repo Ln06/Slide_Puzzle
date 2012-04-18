@@ -10,5 +10,7 @@
 
 @interface ImageSliderViewController : UIViewController
 
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
+-(void)animateView:(int) origine:(int)x:(int) y; 
 
 @end

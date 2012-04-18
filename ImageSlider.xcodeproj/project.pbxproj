@@ -7,20 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		955A63CD152DD4FF0050A4AF /* ImageSliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A63CB152DD4FF0050A4AF /* ImageSliderViewController.m */; };
+		955A63CE152DD4FF0050A4AF /* ImageSliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 955A63CC152DD4FF0050A4AF /* ImageSliderViewController.xib */; };
 		958A80A3152310C50001E992 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958A80A2152310C50001E992 /* UIKit.framework */; };
 		958A80A5152310C50001E992 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958A80A4152310C50001E992 /* Foundation.framework */; };
 		958A80A7152310C50001E992 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958A80A6152310C50001E992 /* CoreGraphics.framework */; };
 		958A80AD152310C50001E992 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 958A80AB152310C50001E992 /* InfoPlist.strings */; };
 		958A80AF152310C50001E992 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80AE152310C50001E992 /* main.m */; };
 		958A80B3152310C50001E992 /* ImageSliderAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80B2152310C50001E992 /* ImageSliderAppDelegate.m */; };
-		958A80B6152310C50001E992 /* ImageSliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80B5152310C50001E992 /* ImageSliderViewController.m */; };
-		958A80B9152310C50001E992 /* ImageSliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 958A80B7152310C50001E992 /* ImageSliderViewController.xib */; };
 		958A80C8152317F40001E992 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80C7152317F30001E992 /* MainMenu.m */; };
 		95C65A9E152C36EE00A01DF6 /* Puzzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C65A9D152C36EE00A01DF6 /* Puzzle.m */; };
 		95C65AAE152C4B8600A01DF6 /* PuzzlePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C65AAD152C4B8600A01DF6 /* PuzzlePiece.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		955A63CA152DD4FF0050A4AF /* ImageSliderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSliderViewController.h; sourceTree = "<group>"; };
+		955A63CB152DD4FF0050A4AF /* ImageSliderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSliderViewController.m; sourceTree = "<group>"; };
+		955A63CC152DD4FF0050A4AF /* ImageSliderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageSliderViewController.xib; sourceTree = "<group>"; };
 		958A809E152310C50001E992 /* ImageSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		958A80A2152310C50001E992 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		958A80A4152310C50001E992 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -31,14 +34,11 @@
 		958A80B0152310C50001E992 /* ImageSlider-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImageSlider-Prefix.pch"; sourceTree = "<group>"; };
 		958A80B1152310C50001E992 /* ImageSliderAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageSliderAppDelegate.h; sourceTree = "<group>"; };
 		958A80B2152310C50001E992 /* ImageSliderAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageSliderAppDelegate.m; sourceTree = "<group>"; };
-		958A80B4152310C50001E992 /* ImageSliderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageSliderViewController.h; sourceTree = "<group>"; };
-		958A80B5152310C50001E992 /* ImageSliderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageSliderViewController.m; sourceTree = "<group>"; };
-		958A80B8152310C50001E992 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ImageSliderViewController.xib; sourceTree = "<group>"; };
 		958A80C6152317F30001E992 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		958A80C7152317F30001E992 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		95C65A9C152C36EE00A01DF6 /* Puzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Puzzle.h; sourceTree = "<group>"; };
 		95C65A9D152C36EE00A01DF6 /* Puzzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Puzzle.m; sourceTree = "<group>"; };
-		95C65AAC152C4B8600A01DF6 /* PuzzlePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PuzzlePiece.h; sourceTree = "<group>"; };
+		95C65AAC152C4B8600A01DF6 /* PuzzlePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzlePiece.h; sourceTree = "<group>"; };
 		95C65AAD152C4B8600A01DF6 /* PuzzlePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzlePiece.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,9 +92,9 @@
 				95C65A9D152C36EE00A01DF6 /* Puzzle.m */,
 				958A80B1152310C50001E992 /* ImageSliderAppDelegate.h */,
 				958A80B2152310C50001E992 /* ImageSliderAppDelegate.m */,
-				958A80B4152310C50001E992 /* ImageSliderViewController.h */,
-				958A80B5152310C50001E992 /* ImageSliderViewController.m */,
-				958A80B7152310C50001E992 /* ImageSliderViewController.xib */,
+				955A63CA152DD4FF0050A4AF /* ImageSliderViewController.h */,
+				955A63CB152DD4FF0050A4AF /* ImageSliderViewController.m */,
+				955A63CC152DD4FF0050A4AF /* ImageSliderViewController.xib */,
 				958A80A9152310C50001E992 /* Supporting Files */,
 				958A80C6152317F30001E992 /* MainMenu.h */,
 				958A80C7152317F30001E992 /* MainMenu.m */,
@@ -164,7 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				958A80AD152310C50001E992 /* InfoPlist.strings in Resources */,
-				958A80B9152310C50001E992 /* ImageSliderViewController.xib in Resources */,
+				955A63CE152DD4FF0050A4AF /* ImageSliderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,10 +177,10 @@
 			files = (
 				958A80AF152310C50001E992 /* main.m in Sources */,
 				958A80B3152310C50001E992 /* ImageSliderAppDelegate.m in Sources */,
-				958A80B6152310C50001E992 /* ImageSliderViewController.m in Sources */,
 				958A80C8152317F40001E992 /* MainMenu.m in Sources */,
 				95C65A9E152C36EE00A01DF6 /* Puzzle.m in Sources */,
 				95C65AAE152C4B8600A01DF6 /* PuzzlePiece.m in Sources */,
+				955A63CD152DD4FF0050A4AF /* ImageSliderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,14 +193,6 @@
 				958A80AC152310C50001E992 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		958A80B7152310C50001E992 /* ImageSliderViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				958A80B8152310C50001E992 /* en */,
-			);
-			name = ImageSliderViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -255,6 +247,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImageSlider/ImageSlider-Prefix.pch";
 				INFOPLIST_FILE = "ImageSlider/ImageSlider-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -266,6 +259,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImageSlider/ImageSlider-Prefix.pch";
 				INFOPLIST_FILE = "ImageSlider/ImageSlider-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

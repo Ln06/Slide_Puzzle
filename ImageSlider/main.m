@@ -1,5 +1,4 @@
-//
-//  main.m
+////  main.m
 //  ImageSlider
 //
 //  Created by Marc Chamly on 3/28/12.

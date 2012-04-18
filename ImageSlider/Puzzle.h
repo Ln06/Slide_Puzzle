@@ -14,6 +14,14 @@
 
 
 
-- (void) addViews: (NSObject *) p;
+-(void) addViews: (NSObject *) p;
+- (void) moveUp:(NSObject *) p:(UIView *) view;
+- (void) moveDown:(NSObject *) p:(UIView *) view;
+- (void) moveRight:(NSObject *) p:(UIView *) view;
+- (void) moveLeft:(NSObject *) p:(UIView *) view;
+-(void) canBeMoved: (NSObject *) p:(UIView *) view;
+-(id) getPuzzler;
+
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 
 @end
