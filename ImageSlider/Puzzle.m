@@ -15,7 +15,8 @@
 @interface Puzzle()
 
 @property (nonatomic, retain) NSMutableArray *puzzler;
-
+@property (nonatomic, assign) int width;
+@property (nonatomic,assign) int height;
 
 @end
 
@@ -23,12 +24,14 @@
 
 @implementation Puzzle
 
-@synthesize puzzler;
+@synthesize width,height,puzzler;
 
 
 - (id)init {
     self = [super init];
     if (self) {
+        width = 107;
+        height =104;
         puzzler = [[NSMutableArray alloc] init];
         
     }
@@ -36,25 +39,26 @@
 }
 
 - (void) canBeMoved: (PuzzlePiece *) p : (UIView *) view {
+    NSLog(@"can %d move?", [p getOrigin]);
     for(id obj in puzzler){
         int column =(int) [obj getCol]; 
         int row = [obj getRow];
         int origin = [obj getOrigin];
-        NSLog(@"should move");
-        NSLog(@"%d",origin);
         if(origin == 12){                       // La view avec l'origine 12, est notre carre noir
-            NSLog(@"origine ==12");
             if(column-p.col==0 && row-p.row==1){
+                NSLog(@"Yes I can be moved!");
                 [self moveDown:p:view];
-                NSLog(@"i'm in bitch");
             }
             else if(column-p.col==0 && p.row-row==1){
+                NSLog(@"Yes I can be moved!");
                 [self moveUp:p:view];
             }
             else if(p.col-column==1 && row-p.row==0){
+                NSLog(@"Yes I can be moved!");
                 [self moveLeft:p:view];
             }
             else if(column-p.col==1 && row-p.row==0){
+                NSLog(@"Yes I can be moved!");
                 [self moveRight:p:view];
             }
             
@@ -69,42 +73,107 @@
 -(id) getPuzzler{
     return puzzler;
 }
+
 - (void) moveUp:(PuzzlePiece *) p:(UIView *) view{
-    NSLog(@"is moving down");
+    NSLog(@"%d is moving up",[p getOrigin]);
     [p setRow:p.row-1];
     [p setPosX:p.posX-104];
-    [UIView animateWithDuration:1.0
+    [UIView animateWithDuration:0.5
                      animations:^{view.center = CGPointMake(view.center.x, view.center.y- view.frame.size.height);}];
     int rowOrigin = [[puzzler lastObject] getRow];
     [[puzzler lastObject] setRow:rowOrigin+1]; //On monte le view Blank d'un cran
 }
+
+
+
 - (void) moveDown:(PuzzlePiece *) p: (UIView *) view{
-    NSLog(@"is moving down");
+    NSLog(@"%d is moving down",[p getOrigin]);
     [p setRow:p.row+1];
     [p setPosX:p.posX+104];
-    [UIView animateWithDuration:1.0
+    [UIView animateWithDuration:0.5
                      animations:^{view.center = CGPointMake(view.center.x, view.center.y+ view.frame.size.height);}];
     int rowOrigin = [[puzzler lastObject] getRow];
     [[puzzler lastObject] setRow:rowOrigin-1]; //On monte le view Blank d'un cran
 }
+
+
+
 - (void) moveLeft:(PuzzlePiece *) p:(UIView *) view {
-    NSLog(@"is moving down");
+    NSLog(@"%d is moving left",[p getOrigin]);
     [p setCol:p.col-1];
     [p setPosY:p.posY-107];
-    [UIView animateWithDuration:1.0
+    [UIView animateWithDuration:0.5
                      animations:^{view.center = CGPointMake(view.center.x-view.frame.size.width, view.center.y);}];
     int colOrigin = [[puzzler lastObject] getCol];
     [[puzzler lastObject] setCol:colOrigin+1]; //On monte le view Blank d'un cran
 }
 - (void) moveRight:(PuzzlePiece *) p:(UIView *) view {
-    NSLog(@"is moving down");
+    NSLog(@"%d is moving right",[p getOrigin]);
     [p setCol:p.col+1];
     [p setPosY:p.posY+107];
-    [UIView animateWithDuration:1.0
+    [UIView animateWithDuration:0.5
                      animations:^{view.center = CGPointMake(view.center.x+view.frame.size.width, view.center.y);}];
     int colOrigin = [[puzzler lastObject] getCol];
     [[puzzler lastObject] setCol:colOrigin-1]; //On monte le view Blank d'un cran
 }
+
+
+// Swapping 2 views by replacing their Location (posX,posY and col,row) but keeping their origin location as is
+-(void) shuffle:(NSMutableArray *) tabView {
+    NSLog(@"every day i'm shuffeling");
+    for(id obj in puzzler){
+        if([obj getOrigin] == 12){
+            // Origin 12 is the Empty view
+            NSLog(@"I'm 12!");
+            
+        }
+        
+        else{
+            //obj is the Object we want to swap
+            
+            //here are obj's details
+            int column =(int) [obj getCol]; 
+            int row = [obj getRow];
+            int posX = [obj getPosX]; 
+            int posY = [obj getPosY];
+            int origin = [obj getOrigin];    
+            
+            //obj2 is the object we are swapping with
+            int numberTotal = ([puzzler count] -2); 
+            int n = (arc4random() % numberTotal);
+            id obj2 = [puzzler objectAtIndex:n];
+            
+            
+            //here are obj2's details
+            int column2 =(int) [obj2 getCol]; 
+            int row2 = [obj2 getRow];
+            int posX2 = [obj2 getPosX]; 
+            int posY2 = [obj2 getPosY];
+            int origin2 = [obj2 getOrigin];
+            
+            NSLog(@"Switching %d with %d",[obj getOrigin],[obj2 getOrigin]);
+            //obj takes obj2's values
+            [obj setPosX:posX2];
+            [obj setPosY:posY2];
+            [obj setCol:column2];
+            [obj setRow:row2];
+            ((UIView *)[tabView objectAtIndex:origin-1]).center = CGPointMake(posX2+(height/2), posY2+(width/2));
+            
+            
+            //obj2 takes obj's values
+            [obj2 setPosX:posX];
+            [obj2 setPosY:posY];
+            [obj2 setCol:column];
+            [obj2 setRow:row];
+            ((UIView *) [tabView objectAtIndex:origin2-1]).center = CGPointMake(posX +(height/2), posY+(width/2));
+            
+        }
+        
+    }
+    NSLog(@"I'm done");
+}
+
+
 
 - (void)addViews: (PuzzlePiece *) p {
     [self.puzzler addObject:p];

@@ -15,6 +15,7 @@
 
 
 -(void) addViews: (NSObject *) p;
+-(void) shuffle:(NSMutableArray *) tabV;
 - (void) moveUp:(NSObject *) p:(UIView *) view;
 - (void) moveDown:(NSObject *) p:(UIView *) view;
 - (void) moveRight:(NSObject *) p:(UIView *) view;

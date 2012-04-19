@@ -21,6 +21,7 @@
 -(int) getRow;
 -(int) getOrigin;
 -(int) getPosX;
+-(int) getPosY;
 -(void) setCol:(int) col1;
 -(void) setPosX:(int) posX1;
 -(void) setPosY:(int) posY1;

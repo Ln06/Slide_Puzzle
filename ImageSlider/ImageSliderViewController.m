@@ -54,7 +54,7 @@
     int height = 104;
     int position = 0;
     
-    //Get the source image from file
+    /*Get the source image from file
     NSImage *source = [[NSImage alloc]initWithContentsOfFile:@"/Users/daniele/Pictures/lda/lodevalm02.jpg";
     
     //Init target image
@@ -83,6 +83,8 @@
     [data writeToFile: @"/Users/daniele/Pictures/lda/lodevalm01_crop.png"
            atomically: NO];
     
+    */
+    
     
     
     
@@ -103,12 +105,23 @@
                 
                 UIView *view1 = [[[UIView alloc] initWithFrame:CGRectMake(ox, oy, width, height)] autorelease];  // creation de la view
                 view1.backgroundColor = [UIColor colorWithRed:(arc4random() % 255)/255.0 green:(arc4random() % 255)/255.0 blue:(arc4random() % 255)/255.0 alpha:1];
+                NSString* pathToImageFile = [[NSBundle mainBundle] pathForResource:@"testing" ofType:@"jpg" inDirectory:@"image"];
+                UIImage *image = [[UIImage alloc] initWithContentsOfFile:pathToImageFile];
+                UIImageView *iView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+                iView.image = image;
+                [iView setImage:image];
+                [view1 addSubview:iView];
                 
+                
+                UILabel *myLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0,0, 25, 25)] autorelease];
+                [myLabel setText:[NSString stringWithFormat:@"%d",position]];
+                 
                 //Creation du TapGestureRecognizer
                 UITapGestureRecognizer *singleFingerTap = 
                 [[UITapGestureRecognizer alloc] initWithTarget:self 
                                                         action:@selector(handleSingleTap:)];
                 [view1 addGestureRecognizer:singleFingerTap];
+                [view1 addSubview:myLabel];
                 [singleFingerTap release];
 
                 
@@ -135,7 +148,7 @@
             }
             else if ((j==3 && i==2)){ // cet objet correspont à l'objet "vide" reconnaissable grâce a ça position d'origine = 12
                 PuzzlePiece *p = [[[PuzzlePiece alloc] initWithPos:(int)ox :(int)oy :position:i:j] autorelease]; //on créer l'objet qui contiendra les infos
-                [tabView addObject: p];
+                //[tabView addObject: p];
                 [puzzle addViews: p];
             }
             
@@ -144,6 +157,7 @@
         ox=0;               //on réinitialise l'origine de l'abscisse
         oy+=height;         //on deplace l'origine de l'ordonnée 
     }
+    [puzzle shuffle:tabView];
     
     
 }
@@ -193,6 +207,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    //[puzzle shuffle];
     [super viewWillAppear:animated];
 }
 

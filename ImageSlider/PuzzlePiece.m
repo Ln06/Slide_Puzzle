@@ -32,6 +32,9 @@
 -(int) getPosX{
     return posX;
 }
+-(int) getPosY{
+    return posY;
+}
 -(int) getOrigin{
     return origin;
 }
