@@ -174,18 +174,25 @@
 }
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
     
-    NSLog(@"%d",[tabView indexOfObject:recognizer.view]);
+    //NSLog(@"%d",[tabView indexOfObject:recognizer.view]);
     int pos = [tabView indexOfObject:recognizer.view]+1;
     PuzzlePiece *p;
     for(id obj in [puzzle getPuzzler]){
         if([obj getOrigin] == pos){
             p = obj;
-            NSLog(@"ajgbqsdkjqsdjklb");
-            NSLog(@"%d",[obj getOrigin]);
+            //NSLog(@"%d",[obj getOrigin]);
         }
     }
     [puzzle canBeMoved:p:recognizer.view];
-    
+    Boolean finished = [puzzle puzzleIsFinished];
+    if(finished){
+        NSLog(@"J'ai finiiiiiiiiiiiiii gros GGGGGGGGGGGGGGGGGGGG");
+        /*NSString* pathToImageFile = [[NSBundle mainBundle] pathForResource:@"testing" ofType:@"jpg" inDirectory:@"image"];
+        UIImage *image = [[UIImage alloc] initWithContentsOfFile:pathToImageFile];
+        UIImageView *iView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, , )];
+        iView.image = image;
+        [iView setImage:image];*/
+    }
     
     //UIView *totoView = [tabView objectAtIndex:9];
     //[puzzle canBeMoved:[tabView objectAtIndex:9]];

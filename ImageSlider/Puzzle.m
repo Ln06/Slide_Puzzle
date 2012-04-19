@@ -173,7 +173,30 @@
     NSLog(@"I'm done");
 }
 
-
+-(Boolean) puzzleIsFinished{
+    for(id obj in puzzler){
+        int col= [obj getCol] +1;   // Colonne de la view
+        int row = [obj getRow] +1 ; // Row de la view
+        int origin =[obj getOrigin];// Origin de la view
+        int maxCol = 3;             // Nombre de colonne de mon puzzle
+        int colMod = origin % maxCol;// origin modulo nombre de colonne max pour connaitre la colonne en fonction du nombre de colonne max
+        int rowDiv = (origin / maxCol);// origin divise par le nombre de colonne max pour connaitre la row en fonction du nombre de colonne max
+        
+        
+        NSLog(@"col = %d row = %d colMod = %d rowDiv = %d",col,row,colMod,rowDiv+1);
+        if( colMod == col && (rowDiv +1)== row ){  // la view est a la bonne place
+            NSLog(@"%d est à la bonne place",origin);
+        }
+        else if( colMod==0 && maxCol==col && rowDiv == row){   //la view est a la bonne place en fin de colonne du tableau 
+            NSLog(@"%d est à la bonne place",origin);
+        }
+        else{                                       // la view n'est pas a la bonne place
+            NSLog(@"%d n'est pas à la bonne place",origin);
+            return false;
+        }
+    }
+    return true;
+}
 
 - (void)addViews: (PuzzlePiece *) p {
     [self.puzzler addObject:p];

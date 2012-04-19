@@ -22,6 +22,7 @@
 - (void) moveLeft:(NSObject *) p:(UIView *) view;
 -(void) canBeMoved: (NSObject *) p:(UIView *) view;
 -(id) getPuzzler;
+-(Boolean) puzzleIsFinished;
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 
