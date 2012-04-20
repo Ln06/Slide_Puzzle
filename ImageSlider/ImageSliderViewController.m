@@ -197,7 +197,7 @@
             //NSLog(@"%d",[obj getOrigin]);
         }
     }
-    [puzzle canBeMoved:p:recognizer.view];
+    [puzzle canBeMoved2:p:tabView];
     Boolean finished =[puzzle puzzleIsFinished];
     if(finished && !displayed){                      // si le puzzle est finit et que l'image n'est pas deja affiche
         UIImage *anImage = [UIImage imageNamed:@"victory.png"];

@@ -88,11 +88,11 @@
 
 - (void)viewDidLoad
 {
-    NSString *musicPath = [[NSBundle mainBundle] pathForResource:@"mario" ofType:@"mp3"];
+    /*NSString *musicPath = [[NSBundle mainBundle] pathForResource:@"mario" ofType:@"mp3"];
     CFURLRef musicURL = (CFURLRef) [NSURL fileURLWithPath:musicPath];
     AudioServicesCreateSystemSoundID(musicURL, &gameMusic);
     AudioServicesPlaySystemSound(gameMusic);
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"puzzleBack11.png"]];
+    */self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"puzzleBack11.png"]];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

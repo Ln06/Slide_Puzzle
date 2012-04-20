@@ -41,36 +41,123 @@
     }
     return self;
 }
+/* Version de deplacement de view 1 a 1
+ *  canBeMoved a comme paramatre une view et un puzzlepiece qui vont subbire le deplacement
+ */
 
 - (void) canBeMoved: (PuzzlePiece *) p : (UIView *) view {
     NSLog(@"can %d move?", [p getOrigin]);
-    for(id obj in puzzler){
-        int column =(int) [obj getCol]; 
-        int row = [obj getRow];
-        int origin = [obj getOrigin];
-         NSLog(@"black view is %d", colMax*rowMax);
-        if(origin == colMax*rowMax){                       // La view avec l'origine colMax*rowMax, est notre carre noir
-            NSLog(@"kjffnlhjkkslnfjsvbhkskj:nfknvb ");
-            if(column-p.col==0 && row-p.row==1){
-                NSLog(@"Yes I can be moved!");
-                [self moveDown:p:view];
-            }
-            else if(column-p.col==0 && p.row-row==1){
-                NSLog(@"Yes I can be moved!");
-                [self moveUp:p:view];
-            }
-            else if(p.col-column==1 && row-p.row==0){
-                NSLog(@"Yes I can be moved!");
-                [self moveLeft:p:view];
-            }
-            else if(column-p.col==1 && row-p.row==0){
-                NSLog(@"Yes I can be moved!");
-                [self moveRight:p:view];
-            }
-            
+    PuzzlePiece *obj = [puzzler lastObject];     //la derniere view est la view vide
+    int column =(int) [obj getCol]; 
+    int row = [obj getRow];
+    NSLog(@"black view is %d", colMax*rowMax);
+        NSLog(@"kjffnlhjkkslnfjsvbhkskj:nfknvb ");
+        if(column-p.col==0 && row-p.row==1){
+            NSLog(@"Yes I can be moved!");
+            [self moveDown:p:view];
         }
-    }
+        else if(column-p.col==0 && p.row-row==1){
+            NSLog(@"Yes I can be moved!");
+            [self moveUp:p:view];
+        }
+        else if(p.col-column==1 && row-p.row==0){
+            NSLog(@"Yes I can be moved!");
+            [self moveLeft:p:view];
+        }
+        else if(column-p.col==1 && row-p.row==0){
+            NSLog(@"Yes I can be moved!");
+            [self moveRight:p:view];
+        }
 }
+
+/* Version de deplacement de view par bloque ou 1 a 1
+ * canBeMoved a comme paramatre le tableau de view et un puzzlepiece qui a recu l'action
+ * toutes les views entre la puzzlepiece et la view vide vont se deplacer vers la view vide 
+ */
+- (void) canBeMoved2: (PuzzlePiece *) p : (NSMutableArray *) tabView {
+    NSLog(@"can %d move?", [p getOrigin]);
+    PuzzlePiece *obj = [puzzler lastObject];     //la derniere view est la view vide
+    int column =(int) [obj getCol]; 
+    int row = [obj getRow];
+    NSLog(@"black view is %d", colMax*rowMax);
+    /*
+     * La view vide est sur la meme colonne mais en dessou de 
+     * la view ayant recu l'action
+     */
+    if(column-p.col==0 && row-p.row>=1){
+        NSLog(@"Yes I can be moved!");
+        for(id obj2 in puzzler){
+            NSLog(@"object number %d",[obj2 getOrigin]);
+            if([obj2 getRow]<row && [obj2 getRow]>=p.row && [obj2 getCol]==column){
+               UIView *view = [tabView objectAtIndex:[obj2 getOrigin]-1];
+               [self moveDown:obj2:view]; 
+                NSLog(@"%d is at rowNumber %d and blackhole at rowNumber %d",[obj2 getOrigin], [obj2 getRow],[obj getRow]);
+            }
+        }
+        
+    }
+    /*
+     * La view vide est sur la meme colonne mais au dessu de 
+     * la view ayant recu l'action
+     */
+    if(column-p.col==0 && p.row-row>=1){
+        NSLog(@"Yes I can be moved!");
+        for(id obj2 in puzzler){
+            NSLog(@"object number %d",[obj2 getOrigin]);
+            if([obj2 getRow]>row && [obj2 getRow]<=p.row && [obj2 getCol]==column){
+                UIView *view = [tabView objectAtIndex:[obj2 getOrigin]-1];
+                [self moveUp:obj2:view]; 
+                NSLog(@"%d is at rowNumber %d and blackhole at rowNumber %d",[obj2 getOrigin], [obj2 getRow],[obj getRow]);
+            }
+        }
+        
+    }
+    /*
+     * La view vide est sur la meme ligne mais a droite de 
+     * la view ayant recu l'action
+     */
+    if(column-p.col>=1 && row-p.row==0){
+        NSLog(@"Yes I can be moved!");
+        for(id obj2 in puzzler){
+            NSLog(@"object number %d",[obj2 getOrigin]);
+            if([obj2 getCol]<column && [obj2 getCol]>=p.col && [obj2 getRow]==row){
+                UIView *view = [tabView objectAtIndex:[obj2 getOrigin]-1];
+                [self moveRight:obj2:view]; 
+                NSLog(@"%d is at colNumber %d and blackhole at colNumber %d",[obj2 getOrigin], [obj2 getCol],[obj getCol]);
+            }
+        }
+        
+    }
+    /*
+     * La view vide est sur la meme ligne mais a droite de 
+     * la view ayant recu l'action
+     */
+    if(p.col-column>=1 && row-p.row==0){
+        NSLog(@"Yes I can be moved!");
+        for(id obj2 in puzzler){
+            NSLog(@"object number %d",[obj2 getOrigin]);
+            if([obj2 getCol]>column && [obj2 getCol]<=p.col && [obj2 getRow]==row){
+                UIView *view = [tabView objectAtIndex:[obj2 getOrigin]-1];
+                [self moveLeft:obj2:view]; 
+                NSLog(@"%d is at colNumber %d and blackhole at colNumber %d",[obj2 getOrigin], [obj2 getCol],[obj getCol]);
+            }
+        }
+        
+    }
+}/*
+    else if(column-p.col==0 && p.row-row==1){
+        NSLog(@"Yes I can be moved!");
+        [self moveUp:p:view];
+    }
+    else if(p.col-column==1 && row-p.row==0){
+        NSLog(@"Yes I can be moved!");
+        [self moveLeft:p:view];
+    }
+    else if(column-p.col==1 && row-p.row==0){
+        NSLog(@"Yes I can be moved!");
+        [self moveRight:p:view];
+    }
+}*/
 
 
 

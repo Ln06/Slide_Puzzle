@@ -21,6 +21,7 @@
 - (void) moveRight:(NSObject *) p:(UIView *) view;
 - (void) moveLeft:(NSObject *) p:(UIView *) view;
 -(void) canBeMoved: (NSObject *) p:(UIView *) view;
+-(void) canBeMoved2: (NSObject *) p:(NSMutableArray *) tabView;
 -(id) getPuzzler;
 -(Boolean) puzzleIsFinished;
 -(id) initWithSize:(int) col:(int)row;
