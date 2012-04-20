@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		955A63CD152DD4FF0050A4AF /* ImageSliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 955A63CB152DD4FF0050A4AF /* ImageSliderViewController.m */; };
 		955A63CE152DD4FF0050A4AF /* ImageSliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 955A63CC152DD4FF0050A4AF /* ImageSliderViewController.xib */; };
+		955E25451540DC730078B152 /* puzzle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 955E25441540DC730078B152 /* puzzle.jpg */; };
+		95771EF81540E4B10059FFFC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95771EF71540E4B10059FFFC /* Default@2x.png */; };
+		95771EFC1540E5EC0059FFFC /* Puzzle Piece.png in Resources */ = {isa = PBXBuildFile; fileRef = 95771EFB1540E5EC0059FFFC /* Puzzle Piece.png */; };
+		95771F021540E8C80059FFFC /* puzzleBack11.png in Resources */ = {isa = PBXBuildFile; fileRef = 95771F011540E8C80059FFFC /* puzzleBack11.png */; };
 		958A80A3152310C50001E992 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958A80A2152310C50001E992 /* UIKit.framework */; };
 		958A80A5152310C50001E992 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958A80A4152310C50001E992 /* Foundation.framework */; };
 		958A80A7152310C50001E992 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958A80A6152310C50001E992 /* CoreGraphics.framework */; };
@@ -16,14 +20,25 @@
 		958A80AF152310C50001E992 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80AE152310C50001E992 /* main.m */; };
 		958A80B3152310C50001E992 /* ImageSliderAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80B2152310C50001E992 /* ImageSliderAppDelegate.m */; };
 		958A80C8152317F40001E992 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A80C7152317F30001E992 /* MainMenu.m */; };
+		959C4AEE15413636003456F8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959C4AED15413636003456F8 /* AudioToolbox.framework */; };
+		959C4AF11541368D003456F8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959C4AF01541368D003456F8 /* AudioToolbox.framework */; };
+		95A8C3C61541464B00275322 /* mario.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 95A8C3C51541464B00275322 /* mario.mp3 */; };
+		95B1BA531540D6700029E003 /* mainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B1BA511540D6700029E003 /* mainPageViewController.m */; };
+		95B1BA541540D6700029E003 /* mainPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95B1BA521540D6700029E003 /* mainPageViewController.xib */; };
 		95C65A9E152C36EE00A01DF6 /* Puzzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C65A9D152C36EE00A01DF6 /* Puzzle.m */; };
 		95C65AAE152C4B8600A01DF6 /* PuzzlePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C65AAD152C4B8600A01DF6 /* PuzzlePiece.m */; };
+		95CF3A7615406E02006512F6 /* testing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95CF3A7515406E02006512F6 /* testing.jpg */; };
+		95CF3A7915406E8E006512F6 /* victory.png in Resources */ = {isa = PBXBuildFile; fileRef = 95CF3A7815406E8E006512F6 /* victory.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		955A63CA152DD4FF0050A4AF /* ImageSliderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSliderViewController.h; sourceTree = "<group>"; };
 		955A63CB152DD4FF0050A4AF /* ImageSliderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSliderViewController.m; sourceTree = "<group>"; };
 		955A63CC152DD4FF0050A4AF /* ImageSliderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageSliderViewController.xib; sourceTree = "<group>"; };
+		955E25441540DC730078B152 /* puzzle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = puzzle.jpg; sourceTree = "<group>"; };
+		95771EF71540E4B10059FFFC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		95771EFB1540E5EC0059FFFC /* Puzzle Piece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Puzzle Piece.png"; sourceTree = "<group>"; };
+		95771F011540E8C80059FFFC /* puzzleBack11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = puzzleBack11.png; path = ../../../../../../Desktop/puzzleBack11.png; sourceTree = "<group>"; };
 		958A809E152310C50001E992 /* ImageSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		958A80A2152310C50001E992 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		958A80A4152310C50001E992 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -36,10 +51,18 @@
 		958A80B2152310C50001E992 /* ImageSliderAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageSliderAppDelegate.m; sourceTree = "<group>"; };
 		958A80C6152317F30001E992 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		958A80C7152317F30001E992 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+		959C4AED15413636003456F8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		959C4AF01541368D003456F8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		95A8C3C51541464B00275322 /* mario.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mario.mp3; sourceTree = "<group>"; };
+		95B1BA501540D6700029E003 /* mainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainPageViewController.h; sourceTree = "<group>"; };
+		95B1BA511540D6700029E003 /* mainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainPageViewController.m; sourceTree = "<group>"; };
+		95B1BA521540D6700029E003 /* mainPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mainPageViewController.xib; sourceTree = "<group>"; };
 		95C65A9C152C36EE00A01DF6 /* Puzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Puzzle.h; sourceTree = "<group>"; };
 		95C65A9D152C36EE00A01DF6 /* Puzzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Puzzle.m; sourceTree = "<group>"; };
 		95C65AAC152C4B8600A01DF6 /* PuzzlePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzlePiece.h; sourceTree = "<group>"; };
 		95C65AAD152C4B8600A01DF6 /* PuzzlePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzlePiece.m; sourceTree = "<group>"; };
+		95CF3A7515406E02006512F6 /* testing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testing.jpg; sourceTree = "<group>"; };
+		95CF3A7815406E8E006512F6 /* victory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = victory.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,9 +70,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				959C4AEE15413636003456F8 /* AudioToolbox.framework in Frameworks */,
 				958A80A3152310C50001E992 /* UIKit.framework in Frameworks */,
 				958A80A5152310C50001E992 /* Foundation.framework in Frameworks */,
 				958A80A7152310C50001E992 /* CoreGraphics.framework in Frameworks */,
+				959C4AF11541368D003456F8 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +84,9 @@
 		958A8093152310C50001E992 = {
 			isa = PBXGroup;
 			children = (
+				959C4AED15413636003456F8 /* AudioToolbox.framework */,
+				95771EFB1540E5EC0059FFFC /* Puzzle Piece.png */,
+				95771EF71540E4B10059FFFC /* Default@2x.png */,
 				958A80A8152310C50001E992 /* ImageSlider */,
 				958A80A1152310C50001E992 /* Frameworks */,
 				958A809F152310C50001E992 /* Products */,
@@ -76,6 +104,7 @@
 		958A80A1152310C50001E992 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				959C4AF01541368D003456F8 /* AudioToolbox.framework */,
 				958A80A2152310C50001E992 /* UIKit.framework */,
 				958A80A4152310C50001E992 /* Foundation.framework */,
 				958A80A6152310C50001E992 /* CoreGraphics.framework */,
@@ -88,16 +117,24 @@
 			children = (
 				95C65AAC152C4B8600A01DF6 /* PuzzlePiece.h */,
 				95C65AAD152C4B8600A01DF6 /* PuzzlePiece.m */,
+				95A8C3C51541464B00275322 /* mario.mp3 */,
+				95CF3A7815406E8E006512F6 /* victory.png */,
 				95C65A9C152C36EE00A01DF6 /* Puzzle.h */,
 				95C65A9D152C36EE00A01DF6 /* Puzzle.m */,
 				958A80B1152310C50001E992 /* ImageSliderAppDelegate.h */,
 				958A80B2152310C50001E992 /* ImageSliderAppDelegate.m */,
 				955A63CA152DD4FF0050A4AF /* ImageSliderViewController.h */,
 				955A63CB152DD4FF0050A4AF /* ImageSliderViewController.m */,
+				95CF3A7515406E02006512F6 /* testing.jpg */,
 				955A63CC152DD4FF0050A4AF /* ImageSliderViewController.xib */,
 				958A80A9152310C50001E992 /* Supporting Files */,
 				958A80C6152317F30001E992 /* MainMenu.h */,
 				958A80C7152317F30001E992 /* MainMenu.m */,
+				95B1BA501540D6700029E003 /* mainPageViewController.h */,
+				95B1BA511540D6700029E003 /* mainPageViewController.m */,
+				95B1BA521540D6700029E003 /* mainPageViewController.xib */,
+				95771F011540E8C80059FFFC /* puzzleBack11.png */,
+				955E25441540DC730078B152 /* puzzle.jpg */,
 			);
 			path = ImageSlider;
 			sourceTree = "<group>";
@@ -165,6 +202,14 @@
 			files = (
 				958A80AD152310C50001E992 /* InfoPlist.strings in Resources */,
 				955A63CE152DD4FF0050A4AF /* ImageSliderViewController.xib in Resources */,
+				95CF3A7615406E02006512F6 /* testing.jpg in Resources */,
+				95CF3A7915406E8E006512F6 /* victory.png in Resources */,
+				95B1BA541540D6700029E003 /* mainPageViewController.xib in Resources */,
+				955E25451540DC730078B152 /* puzzle.jpg in Resources */,
+				95771EF81540E4B10059FFFC /* Default@2x.png in Resources */,
+				95771EFC1540E5EC0059FFFC /* Puzzle Piece.png in Resources */,
+				95771F021540E8C80059FFFC /* puzzleBack11.png in Resources */,
+				95A8C3C61541464B00275322 /* mario.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +226,7 @@
 				95C65A9E152C36EE00A01DF6 /* Puzzle.m in Sources */,
 				95C65AAE152C4B8600A01DF6 /* PuzzlePiece.m in Sources */,
 				955A63CD152DD4FF0050A4AF /* ImageSliderViewController.m in Sources */,
+				95B1BA531540D6700029E003 /* mainPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

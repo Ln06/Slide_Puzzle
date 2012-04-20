@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface ImageSliderViewController : UIViewController
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 -(void)animateView:(int) origine:(int)x:(int) y; 
+-(void) restartGame;
+-(id) initWithSize:(int) x:(int) y;
 
 @end

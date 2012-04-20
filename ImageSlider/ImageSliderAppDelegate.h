@@ -10,7 +10,9 @@
 
 @class ImageSliderViewController;
 
-@interface ImageSliderAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ImageSliderAppDelegate : UIResponder <UIApplicationDelegate>{
+    UINavigationController *navigationController;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

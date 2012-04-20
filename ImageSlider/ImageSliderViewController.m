@@ -9,6 +9,7 @@
 #import "ImageSliderViewController.h"
 #import "Puzzle.h"
 #import "PuzzlePiece.h"
+
 @interface ImageSliderViewController (){
     
     NSMutableArray *tabView;
@@ -16,7 +17,11 @@
 
 @property (nonatomic, retain) Puzzle *puzzle;
 @property (nonatomic,retain) NSMutableArray *tabView;//=[[[NSMutableArray alloc] init] autorelease];
-@property (nonatomic,retain) NSObject *source;
+//@property (nonatomic,retain) NSObject *source;
+@property (nonatomic,assign) Boolean displayed;
+@property (nonatomic,assign) SystemSoundID audioEffect;
+@property (nonatomic,assign) int colMax;
+@property (nonatomic,assign) int rowMax;
 
 
 @end
@@ -24,15 +29,18 @@
 
 @implementation ImageSliderViewController
 
-@synthesize puzzle;
-@synthesize tabView;
-@synthesize source;
+@synthesize puzzle,displayed,audioEffect;
+@synthesize tabView,colMax,rowMax;
 
-- (id)init
+//@synthesize source;
+
+- (id)initWithSize:(int) colMax1:(int) rowMax1
 {
     self = [super initWithNibName:@"ImageSliderViewController" bundle:nil];
     if (self) {
-        puzzle = [[Puzzle alloc] init];
+        colMax = colMax1;
+        rowMax = rowMax1;
+        puzzle = [[Puzzle alloc] initWithSize:colMax :rowMax];
         tabView =[[NSMutableArray alloc] init];
         NSLog(@"aaaaaaa");
     }
@@ -41,18 +49,22 @@
 
 - (void)dealloc {
     [puzzle release];
+    [tabView release];
     [super dealloc];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     int ox = 0;
     int oy =0;
-    int width = 107;
-    int height = 104;
+    int width = 320/colMax;
+    int height = 416/rowMax;
     int position = 0;
+    
+    
+    
+    
     
     /*Get the source image from file
     NSImage *source = [[NSImage alloc]initWithContentsOfFile:@"/Users/daniele/Pictures/lda/lodevalm02.jpg";
@@ -97,20 +109,22 @@
     
     
     
-    for(int j=0; j<4; j=j+1){
-        for (int i=0; i<3; i=i+1) {
-            position +=1;       //position de l'image (1,2,3,...,3+2)
+    for(int j=0; j<rowMax; j=j+1){
+        for (int i=0; i<colMax; i=i+1) {
+            position +=1;       //position de l'image (1,2,3,...,rowMax+colMax)
            
-            if(j!=3 || i!=2){  
+            if(j!=rowMax-1 || i!=colMax-1){  
                 
                 UIView *view1 = [[[UIView alloc] initWithFrame:CGRectMake(ox, oy, width, height)] autorelease];  // creation de la view
                 view1.backgroundColor = [UIColor colorWithRed:(arc4random() % 255)/255.0 green:(arc4random() % 255)/255.0 blue:(arc4random() % 255)/255.0 alpha:1];
-                NSString* pathToImageFile = [[NSBundle mainBundle] pathForResource:@"testing" ofType:@"jpg" inDirectory:@"image"];
-                UIImage *image = [[UIImage alloc] initWithContentsOfFile:pathToImageFile];
-                UIImageView *iView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-                iView.image = image;
-                [iView setImage:image];
-                [view1 addSubview:iView];
+                
+                
+                /*UIImage *anImage = [UIImage imageNamed:@"victory.png"];
+                UIImageView *iView = [[UIImageView alloc] initWithFrame:CGRectMake(0,460,320,460)];
+                iView.image = anImage;
+                [self.view addSubview:iView];
+                [iView release];
+*/
                 
                 
                 UILabel *myLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0,0, 25, 25)] autorelease];
@@ -146,7 +160,8 @@
                 ox+=width;                    //on deplace l'origine sur l'abscisse
                 [view1 release];
             }
-            else if ((j==3 && i==2)){ // cet objet correspont à l'objet "vide" reconnaissable grâce a ça position d'origine = 12
+            else if ((j==rowMax-1 && i==colMax-1)){ // cet objet correspont à l'objet "vide" reconnaissable grâce a ça position d'origine = 12
+                NSLog(@"je contrsuote l'objet black crotte");
                 PuzzlePiece *p = [[[PuzzlePiece alloc] initWithPos:(int)ox :(int)oy :position:i:j] autorelease]; //on créer l'objet qui contiendra les infos
                 //[tabView addObject: p];
                 [puzzle addViews: p];
@@ -173,7 +188,6 @@
     
 }
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-    
     //NSLog(@"%d",[tabView indexOfObject:recognizer.view]);
     int pos = [tabView indexOfObject:recognizer.view]+1;
     PuzzlePiece *p;
@@ -184,26 +198,36 @@
         }
     }
     [puzzle canBeMoved:p:recognizer.view];
-    Boolean finished = [puzzle puzzleIsFinished];
-    if(finished){
-        NSLog(@"J'ai finiiiiiiiiiiiiii gros GGGGGGGGGGGGGGGGGGGG");
-        /*NSString* pathToImageFile = [[NSBundle mainBundle] pathForResource:@"testing" ofType:@"jpg" inDirectory:@"image"];
-        UIImage *image = [[UIImage alloc] initWithContentsOfFile:pathToImageFile];
-        UIImageView *iView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, , )];
-        iView.image = image;
-        [iView setImage:image];*/
+    Boolean finished =[puzzle puzzleIsFinished];
+    if(finished && !displayed){                      // si le puzzle est finit et que l'image n'est pas deja affiche
+        UIImage *anImage = [UIImage imageNamed:@"victory.png"];
+        UIImageView *iView = [[UIImageView alloc] initWithFrame:CGRectMake(0,460,320,460)];
+        iView.image = anImage;
+        [self.view addSubview:iView];
+        [iView release];
+        [UIView animateWithDuration:2.5
+                         animations:^{iView.center = CGPointMake(160,230);}];
+        displayed = true;
     }
-    
-    //UIView *totoView = [tabView objectAtIndex:9];
-    //[puzzle canBeMoved:[tabView objectAtIndex:9]];
-    
-    /*[UIView animateWithDuration:1.0
-                       animations:^{recognizer.view.center = CGPointMake(recognizer.view.center.x, recognizer.view.center.y+ recognizer.view.frame.size.height);}];
-    [recognizer.view setNeedsDisplay];
-    */
+    else if(finished && displayed){
+        NSLog(@"akjgblzjkdnbvkghqvlsdklcbvhlaqsdkjchb qghsjdckvnkh");
+        //[self restartGame];
+    }
 }
 
 
+-(void) restartGame{
+   displayed =false;
+    NSLog(@"restarting");
+    //[tabView release];
+    //[puzzle release];
+    
+    [self release];
+    self.view = nil;
+    //[self removeFromSuperview];
+    [self init];
+    [self viewDidLoad];
+}
 
 - (void)viewDidUnload
 {

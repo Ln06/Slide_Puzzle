@@ -7,7 +7,7 @@
 //
 
 #import "ImageSliderAppDelegate.h"
-
+#import "mainPageViewController.h"
 #import "ImageSliderViewController.h"
 
 @implementation ImageSliderAppDelegate
@@ -26,8 +26,12 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.viewController = [[[ImageSliderViewController alloc] init] autorelease];//WithNibName:@"ImageSliderViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
+    //self.viewController = [[[ImageSliderViewController alloc] init] autorelease];//WithNibName:@"ImageSliderViewController" bundle:nil] autorelease];
+    //self.window.rootViewController = self.viewController;
+    mainPageViewController *mainController = [[mainPageViewController alloc] init];
+    navigationController = [[UINavigationController alloc] initWithRootViewController:mainController];
+    [mainController release];
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;
 }

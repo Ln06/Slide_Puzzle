@@ -17,6 +17,8 @@
 @property (nonatomic, retain) NSMutableArray *puzzler;
 @property (nonatomic, assign) int width;
 @property (nonatomic,assign) int height;
+@property (nonatomic,assign) int colMax;
+@property (nonatomic,assign) int rowMax;
 
 @end
 
@@ -24,14 +26,16 @@
 
 @implementation Puzzle
 
-@synthesize width,height,puzzler;
+@synthesize width,height,puzzler,colMax,rowMax;
 
 
-- (id)init {
+- (id)initWithSize:(int) colMax1:(int) rowMax1 {
     self = [super init];
     if (self) {
-        width = 107;
-        height =104;
+        colMax = colMax1;
+        rowMax = rowMax1;
+        width = 320/colMax; //107;
+        height= 460/rowMax;//104;
         puzzler = [[NSMutableArray alloc] init];
         
     }
@@ -44,7 +48,9 @@
         int column =(int) [obj getCol]; 
         int row = [obj getRow];
         int origin = [obj getOrigin];
-        if(origin == 12){                       // La view avec l'origine 12, est notre carre noir
+         NSLog(@"black view is %d", colMax*rowMax);
+        if(origin == colMax*rowMax){                       // La view avec l'origine colMax*rowMax, est notre carre noir
+            NSLog(@"kjffnlhjkkslnfjsvbhkskj:nfknvb ");
             if(column-p.col==0 && row-p.row==1){
                 NSLog(@"Yes I can be moved!");
                 [self moveDown:p:view];
@@ -77,7 +83,7 @@
 - (void) moveUp:(PuzzlePiece *) p:(UIView *) view{
     NSLog(@"%d is moving up",[p getOrigin]);
     [p setRow:p.row-1];
-    [p setPosX:p.posX-104];
+    [p setPosX:p.posX-height];
     [UIView animateWithDuration:0.5
                      animations:^{view.center = CGPointMake(view.center.x, view.center.y- view.frame.size.height);}];
     int rowOrigin = [[puzzler lastObject] getRow];
@@ -89,7 +95,7 @@
 - (void) moveDown:(PuzzlePiece *) p: (UIView *) view{
     NSLog(@"%d is moving down",[p getOrigin]);
     [p setRow:p.row+1];
-    [p setPosX:p.posX+104];
+    [p setPosX:p.posX+height];
     [UIView animateWithDuration:0.5
                      animations:^{view.center = CGPointMake(view.center.x, view.center.y+ view.frame.size.height);}];
     int rowOrigin = [[puzzler lastObject] getRow];
@@ -101,7 +107,7 @@
 - (void) moveLeft:(PuzzlePiece *) p:(UIView *) view {
     NSLog(@"%d is moving left",[p getOrigin]);
     [p setCol:p.col-1];
-    [p setPosY:p.posY-107];
+    [p setPosY:p.posY-width];
     [UIView animateWithDuration:0.5
                      animations:^{view.center = CGPointMake(view.center.x-view.frame.size.width, view.center.y);}];
     int colOrigin = [[puzzler lastObject] getCol];
@@ -110,7 +116,7 @@
 - (void) moveRight:(PuzzlePiece *) p:(UIView *) view {
     NSLog(@"%d is moving right",[p getOrigin]);
     [p setCol:p.col+1];
-    [p setPosY:p.posY+107];
+    [p setPosY:p.posY+width];
     [UIView animateWithDuration:0.5
                      animations:^{view.center = CGPointMake(view.center.x+view.frame.size.width, view.center.y);}];
     int colOrigin = [[puzzler lastObject] getCol];
@@ -122,12 +128,10 @@
 -(void) shuffle:(NSMutableArray *) tabView {
     NSLog(@"every day i'm shuffeling");
     for(id obj in puzzler){
-        if([obj getOrigin] == 12){
+        if([obj getOrigin] == colMax*rowMax){
             // Origin 12 is the Empty view
-            NSLog(@"I'm 12!");
-            
+            NSLog(@"I'm the blank!");
         }
-        
         else{
             //obj is the Object we want to swap
             
@@ -157,15 +161,18 @@
             [obj setPosY:posY2];
             [obj setCol:column2];
             [obj setRow:row2];
-            ((UIView *)[tabView objectAtIndex:origin-1]).center = CGPointMake(posX2+(height/2), posY2+(width/2));
+            CGPoint center2 = ((UIView *)[tabView objectAtIndex:origin2-1]).center;
+            CGPoint center = ((UIView *)[tabView objectAtIndex:origin-1]).center;
             
+            ((UIView *)[tabView objectAtIndex:origin-1]).center = center2;
             
             //obj2 takes obj's values
             [obj2 setPosX:posX];
             [obj2 setPosY:posY];
             [obj2 setCol:column];
             [obj2 setRow:row];
-            ((UIView *) [tabView objectAtIndex:origin2-1]).center = CGPointMake(posX +(height/2), posY+(width/2));
+            
+            ((UIView *) [tabView objectAtIndex:origin2-1]).center = center;
             
         }
         
@@ -178,16 +185,16 @@
         int col= [obj getCol] +1;   // Colonne de la view
         int row = [obj getRow] +1 ; // Row de la view
         int origin =[obj getOrigin];// Origin de la view
-        int maxCol = 3;             // Nombre de colonne de mon puzzle
-        int colMod = origin % maxCol;// origin modulo nombre de colonne max pour connaitre la colonne en fonction du nombre de colonne max
-        int rowDiv = (origin / maxCol);// origin divise par le nombre de colonne max pour connaitre la row en fonction du nombre de colonne max
+        //int maxCol = 3;             // Nombre de colonne de mon puzzle
+        int colMod = origin % colMax;// origin modulo nombre de colonne max pour connaitre la colonne en fonction du nombre de colonne max
+        int rowDiv = (origin / colMax);// origin divise par le nombre de colonne max pour connaitre la row en fonction du nombre de colonne max
         
         
         NSLog(@"col = %d row = %d colMod = %d rowDiv = %d",col,row,colMod,rowDiv+1);
         if( colMod == col && (rowDiv +1)== row ){  // la view est a la bonne place
             NSLog(@"%d est à la bonne place",origin);
         }
-        else if( colMod==0 && maxCol==col && rowDiv == row){   //la view est a la bonne place en fin de colonne du tableau 
+        else if( colMod==0 && colMax==col && rowDiv == row){   //la view est a la bonne place en fin de colonne du tableau 
             NSLog(@"%d est à la bonne place",origin);
         }
         else{                                       // la view n'est pas a la bonne place

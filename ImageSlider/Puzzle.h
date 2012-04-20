@@ -23,7 +23,7 @@
 -(void) canBeMoved: (NSObject *) p:(UIView *) view;
 -(id) getPuzzler;
 -(Boolean) puzzleIsFinished;
-
-- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
+-(id) initWithSize:(int) col:(int)row;
+//-(void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 
 @end
