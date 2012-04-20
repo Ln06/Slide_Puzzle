@@ -19,9 +19,9 @@
 @end
 
 @implementation mainPageViewController
-@synthesize colNumber;
-@synthesize rowNumber;
 
+@synthesize start,continue1,restartBut;
+@synthesize colNumber,rowNumber;
 @synthesize restart, gameMusic,colMax,rowMax;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -29,8 +29,12 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [colNumber setText:[NSString stringWithFormat:@"%g", colMax]];
-        [rowNumber setText:[NSString stringWithFormat:@"%g", rowMax]];
+        [self.continue1 setHidden:true];
+        [self.restartBut setHidden:true];
+        colMax = 3;
+        rowMax = 4;
+        [colNumber setText:[NSString stringWithFormat:@"%d", colMax]];
+        [rowNumber setText:[NSString stringWithFormat:@"%d", rowMax]];
     }
     return self;
 }
@@ -38,11 +42,15 @@
 
 
 -(IBAction)startButtonPressed:(UIButton *)sender{
+    [self.start setHidden:true];
+    [self.continue1 setHidden:false];
+    [self.restartBut setHidden:false];
     AudioServicesPlaySystemSound(gameMusic);
     restart = false;
     [self.navigationController pushViewController: self.imageSliderViewController animated:YES];
     
 }
+
 -(IBAction)restartButtonPressed:(UIButton *)sender{
     restart = true;
     [self.navigationController pushViewController: self.imageSliderViewController animated:YES];
@@ -101,6 +109,9 @@
 {
     [self setColNumber:nil];
     [self setRowNumber:nil];
+    [self setStart:nil];
+    [self setContinue1:nil];
+    [self setRestartBut:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -115,6 +126,9 @@
 - (void)dealloc {
     [colNumber release];
     [rowNumber release];
+    [start release];
+    [continue1 release];
+    [restartBut release];
     [super dealloc];
 }
 @end

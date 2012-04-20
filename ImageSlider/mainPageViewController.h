@@ -20,6 +20,8 @@
 -(IBAction)changeRowNumber:(UIStepper *) sender;
 @property (retain, nonatomic) IBOutlet UILabel *colNumber;
 @property (retain, nonatomic) IBOutlet UILabel *rowNumber;
-
+@property (retain, nonatomic) IBOutlet UIButton *start;
+@property (retain, nonatomic) IBOutlet UIButton *continue1;
+@property (retain, nonatomic) IBOutlet UIButton *restartBut;
 - (ImageSliderViewController *) imageSliderViewController;
 @end
