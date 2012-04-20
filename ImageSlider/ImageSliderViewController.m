@@ -66,36 +66,8 @@
     
     
     
-    /*Get the source image from file
-    NSImage *source = [[NSImage alloc]initWithContentsOfFile:@"/Users/daniele/Pictures/lda/lodevalm02.jpg";
-    
-    //Init target image
-    NSImage *target = [[NSImage alloc]initWithSize:NSMakeSize(128,128)];
-    
-    //start drawing on target
-    [target lockFocus];
-    //draw the portion of the source image on target image
-    [source drawInRect:NSMakeRect(0,0,128,128)
-              fromRect:NSMakeRect(0,0,128,128)
-             operation:NSCompositeCopy
-              fraction:1.0];
-    //end drawing
-    [target unlockFocus];
-    
-    //create a NSBitmapImageRep
-    NSBitmapImageRep *bmpImageRep = [[NSBitmapImageRep alloc]initWithData:[target TIFFRepresentation]];
-    //add the NSBitmapImage to the representation list of the target
-    [target addRepresentation:bmpImageRep];
-    
-    //get the data from the representation
-    NSData *data = [bmpImageRep representationUsingType: NSPNGFileType
-                                             properties: nil];
-    
-    //write the data to a file
-    [data writeToFile: @"/Users/daniele/Pictures/lda/lodevalm01_crop.png"
-           atomically: NO];
-    
-    */
+  
+
     
     
     
@@ -108,18 +80,45 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
+     *   Decoupage d'une photo en plein de petites views
+     *
+     *
+     */
+    UIImage* whole = [UIImage imageNamed:@"burj.png"]; 
     
     for(int j=0; j<rowMax; j=j+1){
         for (int i=0; i<colMax; i=i+1) {
             position +=1;       //position de l'image (1,2,3,...,rowMax+colMax)
            
             if(j!=rowMax-1 || i!=colMax-1){  
+                CGImageRef cgImg = CGImageCreateWithImageInRect(whole.CGImage, CGRectMake(ox, oy, width, height));
+                UIImage* part = [UIImage imageWithCGImage:cgImg];
+                UIImageView* iv = [[UIImageView alloc] initWithImage:part];
                 
+                UIView* view1 = [[UIView alloc] initWithFrame:CGRectMake(ox, oy, width, height)];
+                [view1 addSubview:iv];
+                [iv release];
+                
+                
+                
+                
+                
+                
+                /*
                 UIView *view1 = [[[UIView alloc] initWithFrame:CGRectMake(ox, oy, width, height)] autorelease];  // creation de la view
                 view1.backgroundColor = [UIColor colorWithRed:(arc4random() % 255)/255.0 green:(arc4random() % 255)/255.0 blue:(arc4random() % 255)/255.0 alpha:1];
                 
                 
-                /*UIImage *anImage = [UIImage imageNamed:@"victory.png"];
+                UIImage *anImage = [UIImage imageNamed:@"victory.png"];
                 UIImageView *iView = [[UIImageView alloc] initWithFrame:CGRectMake(0,460,320,460)];
                 iView.image = anImage;
                 [self.view addSubview:iView];
@@ -129,7 +128,6 @@
                 
                 UILabel *myLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0,0, 25, 25)] autorelease];
                 [myLabel setText:[NSString stringWithFormat:@"%d",position]];
-                 
                 //Creation du TapGestureRecognizer
                 UITapGestureRecognizer *singleFingerTap = 
                 [[UITapGestureRecognizer alloc] initWithTarget:self 
@@ -159,6 +157,7 @@
                 [puzzle addViews: p];         //on rajjoute l'objet contenant les infos a notre tableau d'info
                 ox+=width;                    //on deplace l'origine sur l'abscisse
                 [view1 release];
+                CGImageRelease(cgImg);
             }
             else if ((j==rowMax-1 && i==colMax-1)){ // cet objet correspont à l'objet "vide" reconnaissable grâce a ça position d'origine = 12
                 NSLog(@"je contrsuote l'objet black crotte");
