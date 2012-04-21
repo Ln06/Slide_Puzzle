@@ -15,11 +15,15 @@
 @property (nonatomic) SystemSoundID gameMusic;
 @property (nonatomic,assign) int colMax;
 @property (nonatomic,assign) int rowMax;
+@property (nonatomic,assign) UIImage *photo;
+
+@property (nonatomic, retain) UIImagePickerController *imgPicker;
 
 @end
 
 @implementation mainPageViewController
-
+@synthesize photo;
+@synthesize imgPicker;
 @synthesize start,continue1,restartBut;
 @synthesize colNumber,rowNumber;
 @synthesize restart, gameMusic,colMax,rowMax;
@@ -40,8 +44,35 @@
 }
 
 
+/*
+ *Code pour Selectionner une image de notre library
+ */
+- (void)imagePickerController:(UIImagePickerController *)imagePicker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    NSLog(@"photo choisit");
+    photo = image;
+    [self dismissModalViewControllerAnimated:YES];
+    [start sendActionsForControlEvents:UIControlEventTouchUpInside];   //déclanche le debut apres selection de l'image
 
+}
+
+/*
+ * Start with Image Button qui renvoie a la selection d'image de notre livrary
+ */
+-(IBAction)startWithImage:(UIButton *) sender{
+    restart = true;
+    self.imgPicker = [[UIImagePickerController alloc] init];
+    //self.imgPicker.allowsEditing = YES;
+    self.imgPicker.delegate = self;
+    self.imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentModalViewController:self.imgPicker animated:YES];
+}
+/*
+ *  Start Button pressed
+ */
 -(IBAction)startButtonPressed:(UIButton *)sender{
+    photo = [UIImage imageNamed:@"burj.jpg"];
     [self.start setHidden:true];
     [self.continue1 setHidden:false];
     [self.restartBut setHidden:false];
@@ -50,31 +81,46 @@
     [self.navigationController pushViewController: self.imageSliderViewController animated:YES];
     
 }
-
+/*
+ *Restart pressed
+ */
 -(IBAction)restartButtonPressed:(UIButton *)sender{
     restart = true;
     [self.navigationController pushViewController: self.imageSliderViewController animated:YES];
 }
 
+/*
+ *  Change column Number
+ */
 -(IBAction)changeColumnNumber:(UIStepper *)sender{
     colMax = [sender value];
     [colNumber setText:[NSString stringWithFormat:@"%d", colMax]];
     
 }
+
+/*
+ *  Change row Number
+ */
 -(IBAction)changeRowNumber:(UIStepper *)sender{
     rowMax =  [sender value];
     [rowNumber setText:[NSString stringWithFormat:@"%d", rowMax]];
 }
 
+
+/*
+ * passe la main a ImageSliderViewController soit en commencant une nouvelle parti si aucune existe deja
+ * soit en recommencant une nouvelle parti, 
+ * soit en continuant celle deja existante
+ */
 - (ImageSliderViewController *) imageSliderViewController{
     if(restart==false && !imageSliderViewController){
         NSLog(@"je start");   
-        imageSliderViewController = [[ImageSliderViewController alloc] initWithSize:colMax :rowMax];
+        imageSliderViewController = [[ImageSliderViewController alloc] initWithSize:colMax :rowMax:photo];
         return imageSliderViewController;
     }
     else if(restart ==true){
         NSLog(@"je restart");
-        imageSliderViewController = [[ImageSliderViewController alloc] initWithSize:colMax :rowMax];
+        imageSliderViewController = [[ImageSliderViewController alloc] initWithSize:colMax :rowMax:photo];
         return imageSliderViewController;
     }
     return imageSliderViewController;
@@ -100,7 +146,9 @@
     CFURLRef musicURL = (CFURLRef) [NSURL fileURLWithPath:musicPath];
     AudioServicesCreateSystemSoundID(musicURL, &gameMusic);
     AudioServicesPlaySystemSound(gameMusic);
-    */self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"puzzleBack11.png"]];
+    */
+    
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"puzzleBack11.png"]];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

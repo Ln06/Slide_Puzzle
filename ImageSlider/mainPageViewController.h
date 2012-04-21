@@ -10,9 +10,11 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "ImageSliderViewController.h"
 
-@interface mainPageViewController : UIViewController{
+@interface mainPageViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>{
     ImageSliderViewController *imageSliderViewController;
+    UIImagePickerController *imgPicker;
     Boolean restart;
+    NSString *imageKey;
 }
 -(IBAction)startButtonPressed:(UIButton *)sender;
 -(IBAction)restartButtonPressed:(UIButton *)sender;

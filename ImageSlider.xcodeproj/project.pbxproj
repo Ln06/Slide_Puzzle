@@ -23,6 +23,7 @@
 		959C4AEE15413636003456F8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959C4AED15413636003456F8 /* AudioToolbox.framework */; };
 		959C4AF11541368D003456F8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959C4AF01541368D003456F8 /* AudioToolbox.framework */; };
 		95A8C3C61541464B00275322 /* mario.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 95A8C3C51541464B00275322 /* mario.mp3 */; };
+		95A8C3CA15421BCC00275322 /* burj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95A8C3C915421BCB00275322 /* burj.jpg */; };
 		95B1BA531540D6700029E003 /* mainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B1BA511540D6700029E003 /* mainPageViewController.m */; };
 		95B1BA541540D6700029E003 /* mainPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95B1BA521540D6700029E003 /* mainPageViewController.xib */; };
 		95C65A9E152C36EE00A01DF6 /* Puzzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C65A9D152C36EE00A01DF6 /* Puzzle.m */; };
@@ -54,6 +55,7 @@
 		959C4AED15413636003456F8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		959C4AF01541368D003456F8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		95A8C3C51541464B00275322 /* mario.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mario.mp3; sourceTree = "<group>"; };
+		95A8C3C915421BCB00275322 /* burj.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = burj.jpg; sourceTree = "<group>"; };
 		95B1BA501540D6700029E003 /* mainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainPageViewController.h; sourceTree = "<group>"; };
 		95B1BA511540D6700029E003 /* mainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainPageViewController.m; sourceTree = "<group>"; };
 		95B1BA521540D6700029E003 /* mainPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mainPageViewController.xib; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		958A80A8152310C50001E992 /* ImageSlider */ = {
 			isa = PBXGroup;
 			children = (
+				95A8C3C915421BCB00275322 /* burj.jpg */,
 				95C65AAC152C4B8600A01DF6 /* PuzzlePiece.h */,
 				95C65AAD152C4B8600A01DF6 /* PuzzlePiece.m */,
 				95A8C3C51541464B00275322 /* mario.mp3 */,
@@ -210,6 +213,7 @@
 				95771EFC1540E5EC0059FFFC /* Puzzle Piece.png in Resources */,
 				95771F021540E8C80059FFFC /* puzzleBack11.png in Resources */,
 				95A8C3C61541464B00275322 /* mario.mp3 in Resources */,
+				95A8C3CA15421BCC00275322 /* burj.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

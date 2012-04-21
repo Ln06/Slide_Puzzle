@@ -199,8 +199,21 @@
 }
 
 
+
+
+
+
+-(void) shuffle:(NSMutableArray *) tabView{
+    int numberTotal = ([puzzler count] -2); 
+    for(int x=0;x<100; x++){
+        int n = (arc4random() % numberTotal);
+        id obj1 = [puzzler objectAtIndex:n];
+        [self canBeMoved2:obj1:tabView];
+    }
+    
+}
 // Swapping 2 views by replacing their Location (posX,posY and col,row) but keeping their origin location as is
--(void) shuffle:(NSMutableArray *) tabView {
+-(void) shuffle2:(NSMutableArray *) tabView {
     NSLog(@"every day i'm shuffeling");
     for(id obj in puzzler){
         if([obj getOrigin] == colMax*rowMax){

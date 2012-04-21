@@ -22,7 +22,7 @@
 @property (nonatomic,assign) SystemSoundID audioEffect;
 @property (nonatomic,assign) int colMax;
 @property (nonatomic,assign) int rowMax;
-
+@property (nonatomic,retain) UIImage *photo;
 
 @end
 
@@ -30,14 +30,15 @@
 @implementation ImageSliderViewController
 
 @synthesize puzzle,displayed,audioEffect;
-@synthesize tabView,colMax,rowMax;
+@synthesize tabView,colMax,rowMax,photo;
 
 //@synthesize source;
 
-- (id)initWithSize:(int) colMax1:(int) rowMax1
+- (id)initWithSize:(int) colMax1:(int) rowMax1:(UIImage *) img
 {
     self = [super initWithNibName:@"ImageSliderViewController" bundle:nil];
     if (self) {
+        photo = img;
         colMax = colMax1;
         rowMax = rowMax1;
         puzzle = [[Puzzle alloc] initWithSize:colMax :rowMax];
@@ -50,6 +51,7 @@
 - (void)dealloc {
     [puzzle release];
     [tabView release];
+    [photo release];
     [super dealloc];
 }
 
@@ -61,9 +63,6 @@
     int width = 320/colMax;
     int height = 416/rowMax;
     int position = 0;
-    
-    
-    
     
     
   
@@ -93,38 +92,19 @@
      *
      *
      */
-    UIImage* whole = [UIImage imageNamed:@"burj.png"]; 
-    
     for(int j=0; j<rowMax; j=j+1){
         for (int i=0; i<colMax; i=i+1) {
             position +=1;       //position de l'image (1,2,3,...,rowMax+colMax)
            
             if(j!=rowMax-1 || i!=colMax-1){  
-                CGImageRef cgImg = CGImageCreateWithImageInRect(whole.CGImage, CGRectMake(ox, oy, width, height));
+                CGImageRef cgImg = CGImageCreateWithImageInRect(photo.CGImage, CGRectMake(ox, oy, width, height));
                 UIImage* part = [UIImage imageWithCGImage:cgImg];
                 UIImageView* iv = [[UIImageView alloc] initWithImage:part];
                 
                 UIView* view1 = [[UIView alloc] initWithFrame:CGRectMake(ox, oy, width, height)];
                 [view1 addSubview:iv];
                 [iv release];
-                
-                
-                
-                
-                
-                
-                /*
-                UIView *view1 = [[[UIView alloc] initWithFrame:CGRectMake(ox, oy, width, height)] autorelease];  // creation de la view
-                view1.backgroundColor = [UIColor colorWithRed:(arc4random() % 255)/255.0 green:(arc4random() % 255)/255.0 blue:(arc4random() % 255)/255.0 alpha:1];
-                
-                
-                UIImage *anImage = [UIImage imageNamed:@"victory.png"];
-                UIImageView *iView = [[UIImageView alloc] initWithFrame:CGRectMake(0,460,320,460)];
-                iView.image = anImage;
-                [self.view addSubview:iView];
-                [iView release];
-*/
-                
+            
                 
                 UILabel *myLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0,0, 25, 25)] autorelease];
                 [myLabel setText:[NSString stringWithFormat:@"%d",position]];

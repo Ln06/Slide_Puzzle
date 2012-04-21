@@ -11,9 +11,10 @@
 
 @interface ImageSliderViewController : UIViewController
 
+
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 -(void)animateView:(int) origine:(int)x:(int) y; 
 -(void) restartGame;
--(id) initWithSize:(int) x:(int) y;
+-(id) initWithSize:(int) x:(int) y:(UIImage *) img;
 
 @end
