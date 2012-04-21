@@ -25,5 +25,6 @@
 @property (retain, nonatomic) IBOutlet UIButton *start;
 @property (retain, nonatomic) IBOutlet UIButton *continue1;
 @property (retain, nonatomic) IBOutlet UIButton *restartBut;
+@property (retain, nonatomic) IBOutlet UILabel *loading;
 - (ImageSliderViewController *) imageSliderViewController;
 @end

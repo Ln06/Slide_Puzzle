@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "FullImage.h"
 
-@interface ImageSliderViewController : UIViewController
+@interface ImageSliderViewController : UIViewController{
+    FullImage *fullImage;
+}
 
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
 -(void)animateView:(int) origine:(int)x:(int) y; 
 -(void) restartGame;
 -(id) initWithSize:(int) x:(int) y:(UIImage *) img;
-
+- (FullImage *) fullImage;
+-(void)showFullImage;
 @end

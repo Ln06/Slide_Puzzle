@@ -22,6 +22,7 @@
 @end
 
 @implementation mainPageViewController
+@synthesize loading;
 @synthesize photo;
 @synthesize imgPicker;
 @synthesize start,continue1,restartBut;
@@ -68,6 +69,7 @@
     self.imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentModalViewController:self.imgPicker animated:YES];
 }
+
 /*
  *  Start Button pressed
  */
@@ -114,8 +116,10 @@
  */
 - (ImageSliderViewController *) imageSliderViewController{
     if(restart==false && !imageSliderViewController){
+        [self.loading setHidden:false];
         NSLog(@"je start");   
         imageSliderViewController = [[ImageSliderViewController alloc] initWithSize:colMax :rowMax:photo];
+        [self.loading setHidden:true];
         return imageSliderViewController;
     }
     else if(restart ==true){
@@ -160,6 +164,7 @@
     [self setStart:nil];
     [self setContinue1:nil];
     [self setRestartBut:nil];
+    [self setLoading:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -177,6 +182,7 @@
     [start release];
     [continue1 release];
     [restartBut release];
+    [loading release];
     [super dealloc];
 }
 @end

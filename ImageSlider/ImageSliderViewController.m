@@ -9,7 +9,7 @@
 #import "ImageSliderViewController.h"
 #import "Puzzle.h"
 #import "PuzzlePiece.h"
-
+#import "FullImage.h"
 @interface ImageSliderViewController (){
     
     NSMutableArray *tabView;
@@ -44,6 +44,7 @@
         puzzle = [[Puzzle alloc] initWithSize:colMax :rowMax];
         tabView =[[NSMutableArray alloc] init];
         NSLog(@"aaaaaaa");
+        
     }
     return self;
 }
@@ -58,33 +59,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     int ox = 0;
     int oy =0;
     int width = 320/colMax;
     int height = 416/rowMax;
     int position = 0;
     
-    
-  
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Show image" style:UIBarButtonItemStylePlain target:self action:@selector(showFullImage)];          
+    self.navigationItem.rightBarButtonItem = anotherButton;
+    [anotherButton release];
     
     
     /*
@@ -104,10 +88,10 @@
                 UIView* view1 = [[UIView alloc] initWithFrame:CGRectMake(ox, oy, width, height)];
                 [view1 addSubview:iv];
                 [iv release];
-            
                 
                 UILabel *myLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0,0, 25, 25)] autorelease];
                 [myLabel setText:[NSString stringWithFormat:@"%d",position]];
+                
                 //Creation du TapGestureRecognizer
                 UITapGestureRecognizer *singleFingerTap = 
                 [[UITapGestureRecognizer alloc] initWithTarget:self 
@@ -121,15 +105,6 @@
                 
                 //un petit println
                 NSLog(@"%d",position);
-                
-                
-                //un petit test pour voir si l'animation fonctionne
-                /*if(position == 9){   
-                   [UIView animateWithDuration:1.0
-                                     animations:^{view1.center = CGPointMake(view1.center.x, view1.center.y+ view1.frame.size.height);}];
-                
-                }*/
-                //fin de teste
                 
                 
                 [self.view addSubview:view1]; //on rajjoute l'image à notre viewPrincipale
@@ -156,6 +131,23 @@
     
 }
 
+-(void) showFullImage{
+    [self.navigationController pushViewController: self.fullImage animated:YES];
+}
+
+- (FullImage *) fullImage{
+    if(!fullImage){
+        fullImage = [[FullImage alloc] initWithImage:photo];
+        return fullImage;
+    }
+    return fullImage;
+}
+
+
+
+
+
+        
 -(void)animateView:(int) origine:(int) x:(int) y{
     UIView *view1 =[tabView objectAtIndex:origine];
     for(id obj in tabView){
@@ -179,9 +171,9 @@
     [puzzle canBeMoved2:p:tabView];
     Boolean finished =[puzzle puzzleIsFinished];
     if(finished && !displayed){                      // si le puzzle est finit et que l'image n'est pas deja affiche
-        UIImage *anImage = [UIImage imageNamed:@"victory.png"];
-        UIImageView *iView = [[UIImageView alloc] initWithFrame:CGRectMake(0,460,320,460)];
-        iView.image = anImage;
+        
+        UIImageView *iView = [[UIImageView alloc] initWithFrame:CGRectMake(0,460,320,460)]  ;
+        iView.image = photo;
         [self.view addSubview:iView];
         [iView release];
         [UIView animateWithDuration:2.5

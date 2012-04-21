@@ -9,7 +9,7 @@
 #import "ImageSliderAppDelegate.h"
 #import "mainPageViewController.h"
 #import "ImageSliderViewController.h"
-
+#import "FullImage.h"
 @implementation ImageSliderAppDelegate
 
 @synthesize window = _window;
@@ -29,11 +29,13 @@
     //self.viewController = [[[ImageSliderViewController alloc] init] autorelease];//WithNibName:@"ImageSliderViewController" bundle:nil] autorelease];
     //self.window.rootViewController = self.viewController;
     mainPageViewController *mainController = [[mainPageViewController alloc] init];
+    //FullImage *fullImage = [[FullImage alloc] init];
     navigationController = [[UINavigationController alloc] initWithRootViewController:mainController];
     [mainController release];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
