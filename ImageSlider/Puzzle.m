@@ -120,7 +120,6 @@
                 [tabViews addObject:loc];
                 [self moveRight:obj2]; 
                 NSLog(@"%d is at colNumber %d and blackhole at colNumber %d",[obj2 getOrigin], [obj2 getCol],[obj getCol]);
-                return tabViews;
             }
         }
         return tabViews;
@@ -142,7 +141,7 @@
                 [tabViews addObject:loc];
                 [self moveLeft:obj2]; 
                 NSLog(@"%d is at colNumber %d and blackhole at colNumber %d",[obj2 getOrigin], [obj2 getCol],[obj getCol]);
-                return tabViews;
+                
             }
         }
         return tabViews;
