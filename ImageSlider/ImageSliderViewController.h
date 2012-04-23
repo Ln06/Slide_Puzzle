@@ -16,9 +16,16 @@
 
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
--(void)animateView:(int) origine:(int)x:(int) y; 
 -(void) restartGame;
 -(id) initWithSize:(int) x:(int) y:(UIImage *) img;
 - (FullImage *) fullImage;
 -(void)showFullImage;
+
+-(void) moveViews:(NSMutableArray *) tab;
+- (void) moveUp:(UIView *) view;
+- (void) moveDown:(UIView *) view;
+- (void) moveLeft:(UIView *) view;
+- (void) moveRight:(UIView *) view;
+
+-(void) shuffle;
 @end

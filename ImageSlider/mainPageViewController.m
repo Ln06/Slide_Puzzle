@@ -51,7 +51,6 @@
 - (void)imagePickerController:(UIImagePickerController *)imagePicker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    NSLog(@"photo choisit");
     photo = image;
     [self dismissModalViewControllerAnimated:YES];
     [start sendActionsForControlEvents:UIControlEventTouchUpInside];   //déclanche le debut apres selection de l'image
@@ -71,14 +70,27 @@
 }
 
 /*
+ *
+ */
+-(IBAction)startButton:(UIButton *)sender{
+    [self.start setHidden:true];
+    [self.loading setHidden:false];
+    [self.continue1 setHidden:false];
+    [self.restartBut setHidden:false];
+    [self startingGame]; 
+}
+-(void) startingGame{
+    photo = [UIImage imageNamed:@"burj.jpg"];
+    restart = false;
+    [self.navigationController pushViewController: self.imageSliderViewController animated:YES];
+    
+}
+
+/*
  *  Start Button pressed
  */
 -(IBAction)startButtonPressed:(UIButton *)sender{
     photo = [UIImage imageNamed:@"burj.jpg"];
-    [self.start setHidden:true];
-    [self.continue1 setHidden:false];
-    [self.restartBut setHidden:false];
-    AudioServicesPlaySystemSound(gameMusic);
     restart = false;
     [self.navigationController pushViewController: self.imageSliderViewController animated:YES];
     
@@ -114,16 +126,14 @@
  * soit en recommencant une nouvelle parti, 
  * soit en continuant celle deja existante
  */
+
 - (ImageSliderViewController *) imageSliderViewController{
     if(restart==false && !imageSliderViewController){
-        [self.loading setHidden:false];
-        NSLog(@"je start");   
         imageSliderViewController = [[ImageSliderViewController alloc] initWithSize:colMax :rowMax:photo];
         [self.loading setHidden:true];
         return imageSliderViewController;
     }
     else if(restart ==true){
-        NSLog(@"je restart");
         imageSliderViewController = [[ImageSliderViewController alloc] initWithSize:colMax :rowMax:photo];
         return imageSliderViewController;
     }

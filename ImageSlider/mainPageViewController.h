@@ -17,6 +17,8 @@
     NSString *imageKey;
 }
 -(IBAction)startButtonPressed:(UIButton *)sender;
+-(void) startingGame;
+-(IBAction)startButton:(UIButton *)sender;
 -(IBAction)restartButtonPressed:(UIButton *)sender;
 -(IBAction)changeColumnNumber:(UIStepper *) sender;
 -(IBAction)changeRowNumber:(UIStepper *) sender;

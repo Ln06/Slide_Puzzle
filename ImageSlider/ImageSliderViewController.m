@@ -59,13 +59,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     int ox = 0;
     int oy =0;
-    int width = 320/colMax;
-    int height = 416/rowMax;
+    int width = 320/colMax; //(320)
+    int height = 416/rowMax; //(416)
     int position = 0;
-    
+    self.view.backgroundColor = [UIColor blackColor];
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Show image" style:UIBarButtonItemStylePlain target:self action:@selector(showFullImage)];          
     self.navigationItem.rightBarButtonItem = anotherButton;
     [anotherButton release];
@@ -79,32 +79,43 @@
     for(int j=0; j<rowMax; j=j+1){
         for (int i=0; i<colMax; i=i+1) {
             position +=1;       //position de l'image (1,2,3,...,rowMax+colMax)
-           
+            
             if(j!=rowMax-1 || i!=colMax-1){  
-                CGImageRef cgImg = CGImageCreateWithImageInRect(photo.CGImage, CGRectMake(ox, oy, width, height));
+                /*
+                 * recupere un morceau de l'image
+                 */
+                CGImageRef cgImg = CGImageCreateWithImageInRect(photo.CGImage, CGRectMake(ox, oy, width-1, height-1));//-1 pour avoir un effet de block
                 UIImage* part = [UIImage imageWithCGImage:cgImg];
                 UIImageView* iv = [[UIImageView alloc] initWithImage:part];
                 
+                /*
+                 * transforme l'image en view
+                 */
                 UIView* view1 = [[UIView alloc] initWithFrame:CGRectMake(ox, oy, width, height)];
                 [view1 addSubview:iv];
                 [iv release];
                 
+                /*
+                 * rajoute une petite numerotation a la view
+                 */
                 UILabel *myLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0,0, 25, 25)] autorelease];
                 [myLabel setText:[NSString stringWithFormat:@"%d",position]];
                 
-                //Creation du TapGestureRecognizer
+                /*
+                 *Creation du TapGestureRecognizer
+                 */
+                
                 UITapGestureRecognizer *singleFingerTap = 
                 [[UITapGestureRecognizer alloc] initWithTarget:self 
                                                         action:@selector(handleSingleTap:)];
                 [view1 addGestureRecognizer:singleFingerTap];
                 [view1 addSubview:myLabel];
                 [singleFingerTap release];
-
                 
-                PuzzlePiece *p = [[[PuzzlePiece alloc] initWithPos:(int)ox :(int)oy :position:i:j] autorelease]; //on créer l'objet qui contiendra les infos
-                
-                //un petit println
-                NSLog(@"%d",position);
+                /*
+                 * on creer l'objet qui contiendra les infos
+                 */ 
+                PuzzlePiece *p = [[[PuzzlePiece alloc] initWithPos:(int)ox :(int)oy :position:i:j] autorelease]; 
                 
                 
                 [self.view addSubview:view1]; //on rajjoute l'image à notre viewPrincipale
@@ -114,10 +125,12 @@
                 [view1 release];
                 CGImageRelease(cgImg);
             }
-            else if ((j==rowMax-1 && i==colMax-1)){ // cet objet correspont à l'objet "vide" reconnaissable grâce a ça position d'origine = 12
-                NSLog(@"je contrsuote l'objet black crotte");
-                PuzzlePiece *p = [[[PuzzlePiece alloc] initWithPos:(int)ox :(int)oy :position:i:j] autorelease]; //on créer l'objet qui contiendra les infos
-                //[tabView addObject: p];
+            /*
+             * cet objet correspont à l'objet "vide" reconnaissable grâce a ça position d'origine (derniere ranger derniere colonne)
+             * on créer l'objet qui contiendra les infos mais on ne cree pas de view
+             */
+            else if ((j==rowMax-1 && i==colMax-1)){ 
+                PuzzlePiece *p = [[[PuzzlePiece alloc] initWithPos:(int)ox :(int)oy :position:i:j] autorelease]; 
                 [puzzle addViews: p];
             }
             
@@ -126,10 +139,18 @@
         ox=0;               //on réinitialise l'origine de l'abscisse
         oy+=height;         //on deplace l'origine de l'ordonnée 
     }
-    [puzzle shuffle:tabView];
+    
+    /*
+     * On shuffle les views
+     */
+   // [self shuffle];
     
     
 }
+
+/*
+ * Methode pour afficher un apercu de l'image
+ */
 
 -(void) showFullImage{
     [self.navigationController pushViewController: self.fullImage animated:YES];
@@ -145,33 +166,17 @@
 
 
 
-
-
-        
--(void)animateView:(int) origine:(int) x:(int) y{
-    UIView *view1 =[tabView objectAtIndex:origine];
-    for(id obj in tabView){
-        if([obj getOrigin] == origine){
-            [UIView animateWithDuration:1.0
-                             animations:^{view1.center = CGPointMake(view1.center.x, view1.center.y+ view1.frame.size.height);}];
-        }
-    }
-    
-}
+/*
+ * Singletap recognizer afin de deplacer les views
+ */
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-    //NSLog(@"%d",[tabView indexOfObject:recognizer.view]);
-    int pos = [tabView indexOfObject:recognizer.view]+1;
-    PuzzlePiece *p;
-    for(id obj in [puzzle getPuzzler]){
-        if([obj getOrigin] == pos){
-            p = obj;
-            //NSLog(@"%d",[obj getOrigin]);
-        }
-    }
-    [puzzle canBeMoved2:p:tabView];
-    Boolean finished =[puzzle puzzleIsFinished];
-    if(finished && !displayed){                      // si le puzzle est finit et que l'image n'est pas deja affiche
-        
+    int pos = [tabView indexOfObject:recognizer.view];  // on recupere la position de la view clickee (attention la vrai position est pos +1)
+    PuzzlePiece *p =[[puzzle getPuzzler] objectAtIndex:pos]; // on recupere l'objet (attention l'objet et a la position pos -1) (1-1 = 0!)
+    
+    
+    [self moveViews:[puzzle canBeMoved2:p]];                  // On demande le deplacement de l'objet ainsi que de la view
+    Boolean finished =[puzzle puzzleIsFinished];     // On verifie si le puzzle est resolu
+    if(finished && !displayed){                      // si le puzzle est resolu et que l'image n'est pas deja affiche on afficher l'image
         UIImageView *iView = [[UIImageView alloc] initWithFrame:CGRectMake(0,460,320,460)]  ;
         iView.image = photo;
         [self.view addSubview:iView];
@@ -179,16 +184,24 @@
         [UIView animateWithDuration:2.5
                          animations:^{iView.center = CGPointMake(160,230);}];
         displayed = true;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" 
+														message:@"Congratulation! You have resolved the puzzle"
+													   delegate:nil 
+											  cancelButtonTitle:@"OK" 
+											  otherButtonTitles: nil];
+		[alert show];
+		[alert release];
     }
     else if(finished && displayed){
-        NSLog(@"akjgblzjkdnbvkghqvlsdklcbvhlaqsdkjchb qghsjdckvnkh");
         //[self restartGame];
     }
 }
 
-
+/*
+ * Methode qui recommence une nouvelle partie
+ */
 -(void) restartGame{
-   displayed =false;
+    displayed =false;
     NSLog(@"restarting");
     //[tabView release];
     //[puzzle release];
@@ -199,6 +212,105 @@
     [self init];
     [self viewDidLoad];
 }
+
+
+
+-(void) moveViews:(NSMutableArray *) tab{
+    NSLog(@"I'm in moveViews");
+    if(tab != nil){
+        NSLog(@"tab is not nil");
+        for(int i = 0;i<tab.count-1; i++){
+            NSLog(@"view bug");
+            int number = [[tab objectAtIndex:i+1] intValue];//NSInteger *vie = (NSInteger) [tab objectAtIndex:i+1];
+            UIView *view = [tabView objectAtIndex:number];
+            
+            if([tab objectAtIndex:i] == @"Up"){
+                [self moveUp:view];
+            }
+            else if([tab objectAtIndex:i] == @"Down"){
+                NSLog(@"I'm in move views move down");
+                [self moveDown:view];
+            }
+            else if([tab objectAtIndex:i] == @"Left"){
+                [self moveLeft:view];
+            }
+            else if([tab objectAtIndex:i] == @"Right"){
+                [self moveRight:view];
+            }
+            else{
+                NSLog(@"je sais pas quoi faire");
+            }
+        }
+    }
+    NSLog(@"tab is nil");
+}
+/*
+ * Deplacement vers le haut
+ */
+- (void) moveUp:(UIView *) view{
+    [UIView animateWithDuration:0.5
+                     animations:^{view.center = CGPointMake(view.center.x, view.center.y- view.frame.size.height);}];
+}
+
+/*
+ * Deplacement vers le bas
+ */
+
+- (void) moveDown:(UIView *) view{
+    [UIView animateWithDuration:0.5
+                     animations:^{view.center = CGPointMake(view.center.x, view.center.y+ view.frame.size.height);}];
+}
+
+/*
+ * Deplacement vers la gauche
+ */
+
+- (void) moveLeft:(UIView *) view {
+    [UIView animateWithDuration:0.5
+                     animations:^{view.center = CGPointMake(view.center.x-view.frame.size.width, view.center.y);}];
+}
+
+/*
+ * Deplacement vers la droite
+ */
+
+- (void) moveRight:(UIView *) view {
+    [UIView animateWithDuration:0.5
+                     animations:^{view.center = CGPointMake(view.center.x+view.frame.size.width, view.center.y);}];
+}
+
+
+
+-(void) shuffle{
+    int numberTotal = ([[puzzle getPuzzler] count] -2); 
+    for(int x=0;x<100; x++){
+        // on prend un puzzle piece au hazard
+        int n = (arc4random() % numberTotal);
+        id obj1 = [[puzzle getPuzzler] objectAtIndex:n];
+        // on lui demande de se deplacer (si il peut) 
+        [puzzle canBeMoved2:obj1];
+        
+        // on prend un puzzle piece au hazard
+        int n2 = (arc4random() % numberTotal);
+        id obj2 = [[puzzle getPuzzler] objectAtIndex:n2];
+        // on lui demande de se deplacer (si il peut) 
+        [puzzle canBeMoved2:obj2];
+        
+        // on prend un puzzle piece au hazard
+        int n3 = (arc4random() % numberTotal);
+        id obj3 = [[puzzle getPuzzler] objectAtIndex:n3];
+        // on lui demande de se deplacer (si il peut) 
+        [self moveViews:[puzzle canBeMoved2:obj3]];
+    }
+    
+}
+
+
+
+
+
+
+
 
 - (void)viewDidUnload
 {

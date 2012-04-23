@@ -14,10 +14,10 @@
 
 
 -(id)initWithPos: (int) positionX :(int) positionY :(int) origine:(int) colnum:(int) rownum{
-    self.posX = positionX;
-    self.col = colnum;
-    self.row = rownum;
+    [self setPosX: positionX];
     [self setPosY: positionY];
+    [self setCol: colnum];
+    [self setRow: rownum];
     [self setOrigin: origine];
     
     return self;

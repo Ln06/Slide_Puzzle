@@ -10,21 +10,24 @@
 
 @interface Puzzle : NSObject
 
-//@property (nonatomic, retain) NSMutableArray *puzzler;
 
-
-
--(void) addViews: (NSObject *) p;
--(void) shuffle:(NSMutableArray *) tabV;
-- (void) moveUp:(NSObject *) p:(UIView *) view;
-- (void) moveDown:(NSObject *) p:(UIView *) view;
-- (void) moveRight:(NSObject *) p:(UIView *) view;
-- (void) moveLeft:(NSObject *) p:(UIView *) view;
--(void) canBeMoved: (NSObject *) p:(UIView *) view;
--(void) canBeMoved2: (NSObject *) p:(NSMutableArray *) tabView;
--(id) getPuzzler;
--(Boolean) puzzleIsFinished;
 -(id) initWithSize:(int) col:(int)row;
-//-(void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
+
+//@property (nonatomic, retain) NSMutableArray *puzzler;
+-(void) addViews: (NSObject *) p;
+
+//-(void) shuffle;
+
+- (void) moveUp:(NSObject *) p;
+- (void) moveDown:(NSObject *) p;
+- (void) moveRight:(NSObject *) p;
+- (void) moveLeft:(NSObject *) p;
+
+-(NSMutableArray *) canBeMoved2: (NSObject *) p;
+
+-(id) getPuzzler;
+
+-(Boolean) puzzleIsFinished;
+
 
 @end
