@@ -30,7 +30,6 @@
 		95B1BA541540D6700029E003 /* mainPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95B1BA521540D6700029E003 /* mainPageViewController.xib */; };
 		95C65A9E152C36EE00A01DF6 /* Puzzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C65A9D152C36EE00A01DF6 /* Puzzle.m */; };
 		95C65AAE152C4B8600A01DF6 /* PuzzlePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C65AAD152C4B8600A01DF6 /* PuzzlePiece.m */; };
-		95CF3A7915406E8E006512F6 /* victory.png in Resources */ = {isa = PBXBuildFile; fileRef = 95CF3A7815406E8E006512F6 /* victory.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +66,6 @@
 		95C65A9D152C36EE00A01DF6 /* Puzzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Puzzle.m; sourceTree = "<group>"; };
 		95C65AAC152C4B8600A01DF6 /* PuzzlePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzlePiece.h; sourceTree = "<group>"; };
 		95C65AAD152C4B8600A01DF6 /* PuzzlePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzlePiece.m; sourceTree = "<group>"; };
-		95CF3A7815406E8E006512F6 /* victory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = victory.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +121,6 @@
 				95A8C3C51541464B00275322 /* mario.mp3 */,
 				955E25441540DC730078B152 /* puzzle.jpg */,
 				95771F011540E8C80059FFFC /* puzzleBack11.png */,
-				95CF3A7815406E8E006512F6 /* victory.png */,
 				95A8C3C915421BCB00275322 /* burj.jpg */,
 				95C65AAC152C4B8600A01DF6 /* PuzzlePiece.h */,
 				95C65AAD152C4B8600A01DF6 /* PuzzlePiece.m */,
@@ -210,7 +207,6 @@
 			files = (
 				958A80AD152310C50001E992 /* InfoPlist.strings in Resources */,
 				955A63CE152DD4FF0050A4AF /* ImageSliderViewController.xib in Resources */,
-				95CF3A7915406E8E006512F6 /* victory.png in Resources */,
 				95B1BA541540D6700029E003 /* mainPageViewController.xib in Resources */,
 				955E25451540DC730078B152 /* puzzle.jpg in Resources */,
 				95771EF81540E4B10059FFFC /* Default@2x.png in Resources */,

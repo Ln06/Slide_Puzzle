@@ -8,7 +8,6 @@
 
 #import "Puzzle.h"
 #import "PuzzlePiece.h"
-#import "ImageSliderViewController.h"
 
 
 

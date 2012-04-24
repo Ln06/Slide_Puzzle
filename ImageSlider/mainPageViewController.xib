@@ -435,12 +435,12 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">startButtonPressed:</string>
+						<string key="label">continueButtonPressed:</string>
 						<reference key="source" ref="734263715"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">30</int>
+					<int key="connectionID">37</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -568,7 +568,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">36</int>
+			<int key="maxID">37</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -578,8 +578,9 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="changeColumnNumber:">UIStepper</string>
 						<string key="changeRowNumber:">UIStepper</string>
+						<string key="continueButtonPressed:">UIButton</string>
 						<string key="restartButtonPressed:">UIButton</string>
-						<string key="startButtonPressed:">UIButton</string>
+						<string key="startButton:">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="changeColumnNumber:">
@@ -590,12 +591,16 @@
 							<string key="name">changeRowNumber:</string>
 							<string key="candidateClassName">UIStepper</string>
 						</object>
+						<object class="IBActionInfo" key="continueButtonPressed:">
+							<string key="name">continueButtonPressed:</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
 						<object class="IBActionInfo" key="restartButtonPressed:">
 							<string key="name">restartButtonPressed:</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
-						<object class="IBActionInfo" key="startButtonPressed:">
-							<string key="name">startButtonPressed:</string>
+						<object class="IBActionInfo" key="startButton:">
+							<string key="name">startButton:</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
 					</dictionary>

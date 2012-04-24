@@ -23,6 +23,8 @@
 @property (nonatomic,assign) int colMax;
 @property (nonatomic,assign) int rowMax;
 @property (nonatomic,retain) UIImage *photo;
+@property (nonatomic,retain) NSDate *start;
+@property (nonatomic,assign) int steps;
 
 @end
 
@@ -30,7 +32,8 @@
 @implementation ImageSliderViewController
 
 @synthesize puzzle,displayed,audioEffect;
-@synthesize tabView,colMax,rowMax,photo;
+@synthesize tabView,colMax,rowMax,photo,steps;
+@synthesize start;
 
 //@synthesize source;
 
@@ -43,7 +46,6 @@
         rowMax = rowMax1;
         puzzle = [[Puzzle alloc] initWithSize:colMax :rowMax];
         tabView =[[NSMutableArray alloc] init];
-        NSLog(@"aaaaaaa");
         
     }
     return self;
@@ -59,7 +61,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    start = [NSDate date];
     int ox = 0;
     int oy =0;
     int width = 320/colMax; //(320)
@@ -143,7 +145,8 @@
     /*
      * On shuffle les views
      */
-   // [self shuffle];
+    [self shuffle];
+    steps = 0;   //remettre le compteur du steps a 0 aprés le shuffle
     
     
 }
@@ -173,7 +176,6 @@
     int pos = [tabView indexOfObject:recognizer.view];  // on recupere la position de la view clickee (attention la vrai position est pos +1)
     PuzzlePiece *p =[[puzzle getPuzzler] objectAtIndex:pos]; // on recupere l'objet (attention l'objet et a la position pos -1) (1-1 = 0!)
     
-    
     [self moveViews:[puzzle canBeMoved2:p]];                  // On demande le deplacement de l'objet ainsi que de la view
     Boolean finished =[puzzle puzzleIsFinished];     // On verifie si le puzzle est resolu
     if(finished && !displayed){                      // si le puzzle est resolu et que l'image n'est pas deja affiche on afficher l'image
@@ -184,8 +186,12 @@
         [UIView animateWithDuration:2.5
                          animations:^{iView.center = CGPointMake(160,230);}];
         displayed = true;
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" 
-														message:@"Congratulation! You have resolved the puzzle"
+       // NSTimeInterval timeInterval = [start timeIntervalSinceNow];
+       // NSTimeInterval timeInterval = [[NSDate date] timeIntervalSinceDate:start];
+       // NSString *intervalString = [NSString stringWithFormat:@"%f", timeInterval];
+        NSString *msg = [NSString stringWithFormat:@"You have resolved the puzzle in %d steps !",steps];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congrats!" 
+														message:msg
 													   delegate:nil 
 											  cancelButtonTitle:@"OK" 
 											  otherButtonTitles: nil];
@@ -197,30 +203,14 @@
     }
 }
 
-/*
- * Methode qui recommence une nouvelle partie
- */
--(void) restartGame{
-    displayed =false;
-    NSLog(@"restarting");
-    //[tabView release];
-    //[puzzle release];
-    
-    [self release];
-    self.view = nil;
-    //[self removeFromSuperview];
-    [self init];
-    [self viewDidLoad];
-}
+
 
 
 
 -(void) moveViews:(NSMutableArray *) tab{
-    NSLog(@"I'm in moveViews");
     if(tab != nil){
-        NSLog(@"tab is not nil");
+        steps +=1;
         for(int i = 0;i<tab.count-1; i++){
-            NSLog(@"view bug");
             int number = [[tab objectAtIndex:i+1] intValue];//NSInteger *vie = (NSInteger) [tab objectAtIndex:i+1];
             UIView *view = [tabView objectAtIndex:number];
             
@@ -236,9 +226,6 @@
             }
             else if([tab objectAtIndex:i] == @"Right"){
                 [self moveRight:view];
-            }
-            else{
-                NSLog(@"je sais pas quoi faire");
             }
         }
     }
@@ -288,13 +275,13 @@
         int n = (arc4random() % numberTotal);
         id obj1 = [[puzzle getPuzzler] objectAtIndex:n];
         // on lui demande de se deplacer (si il peut) 
-        [puzzle canBeMoved2:obj1];
+        [self moveViews:[puzzle canBeMoved2:obj1]];
         
         // on prend un puzzle piece au hazard
         int n2 = (arc4random() % numberTotal);
         id obj2 = [[puzzle getPuzzler] objectAtIndex:n2];
         // on lui demande de se deplacer (si il peut) 
-        [puzzle canBeMoved2:obj2];
+        [self moveViews:[puzzle canBeMoved2:obj2]];
         
         // on prend un puzzle piece au hazard
         int n3 = (arc4random() % numberTotal);

@@ -17,14 +17,14 @@
 @property (nonatomic,assign) int rowMax;
 @property (nonatomic,assign) UIImage *photo;
 
-@property (nonatomic, retain) UIImagePickerController *imgPicker;
+@property (nonatomic, retain) UIImagePickerController *imagePickerController;
 
 @end
 
 @implementation mainPageViewController
 @synthesize loading;
 @synthesize photo;
-@synthesize imgPicker;
+@synthesize imagePickerController;
 @synthesize start,continue1,restartBut;
 @synthesize colNumber,rowNumber;
 @synthesize restart, gameMusic,colMax,rowMax;
@@ -43,18 +43,43 @@
     }
     return self;
 }
-
+- (void)dealloc {
+    [colNumber release];
+    [rowNumber release];
+    [start release];
+    [continue1 release];
+    [restartBut release];
+    [loading release];
+    [super dealloc];
+}
 
 /*
  *Code pour Selectionner une image de notre library
- */
+ *
 - (void)imagePickerController:(UIImagePickerController *)imagePicker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    photo = image;
     [self dismissModalViewControllerAnimated:YES];
+    [imagePickerController release];
+    //UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    photo= [info objectForKey:UIImagePickerControllerOriginalImage];
     [start sendActionsForControlEvents:UIControlEventTouchUpInside];   //déclanche le debut apres selection de l'image
+}
+*/
+//Marche pas!
+- (void)imagePickerController:(UIImagePickerController *)imagePicker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo{
 
+    [self dismissModalViewControllerAnimated:YES];
+    //[imagePicker release];
+    [imagePickerController release];
+    //UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    photo= image;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry!" 
+                                                    message:@"This function is not available on free version, purchase full version for more options"
+                                                   delegate:nil 
+                                          cancelButtonTitle:@"OK" 
+                                          otherButtonTitles: nil];
+    [alert show];
+    //[start sendActionsForControlEvents:UIControlEventTouchUpInside];   //déclanche le debut apres selection de l'image
 }
 
 /*
@@ -62,24 +87,21 @@
  */
 -(IBAction)startWithImage:(UIButton *) sender{
     restart = true;
-    self.imgPicker = [[UIImagePickerController alloc] init];
-    //self.imgPicker.allowsEditing = YES;
-    self.imgPicker.delegate = self;
-    self.imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentModalViewController:self.imgPicker animated:YES];
+    self.imagePickerController = [[UIImagePickerController alloc] init];
+    self.imagePickerController.allowsEditing = NO;
+    self.imagePickerController.delegate = self;
+    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentModalViewController:self.imagePickerController animated:YES];
 }
 
 /*
- *
+ *Start button
  */
 -(IBAction)startButton:(UIButton *)sender{
     [self.start setHidden:true];
     [self.loading setHidden:false];
     [self.continue1 setHidden:false];
     [self.restartBut setHidden:false];
-    [self startingGame]; 
-}
--(void) startingGame{
     photo = [UIImage imageNamed:@"burj.jpg"];
     restart = false;
     [self.navigationController pushViewController: self.imageSliderViewController animated:YES];
@@ -87,9 +109,9 @@
 }
 
 /*
- *  Start Button pressed
+ *  Continue Button pressed
  */
--(IBAction)startButtonPressed:(UIButton *)sender{
+-(IBAction)continueButtonPressed:(UIButton *)sender{
     photo = [UIImage imageNamed:@"burj.jpg"];
     restart = false;
     [self.navigationController pushViewController: self.imageSliderViewController animated:YES];
@@ -186,13 +208,5 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)dealloc {
-    [colNumber release];
-    [rowNumber release];
-    [start release];
-    [continue1 release];
-    [restartBut release];
-    [loading release];
-    [super dealloc];
-}
+
 @end

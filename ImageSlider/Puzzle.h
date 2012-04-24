@@ -16,7 +16,6 @@
 //@property (nonatomic, retain) NSMutableArray *puzzler;
 -(void) addViews: (NSObject *) p;
 
-//-(void) shuffle;
 
 - (void) moveUp:(NSObject *) p;
 - (void) moveDown:(NSObject *) p;

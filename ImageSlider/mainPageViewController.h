@@ -12,12 +12,11 @@
 
 @interface mainPageViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>{
     ImageSliderViewController *imageSliderViewController;
-    UIImagePickerController *imgPicker;
+    UIImagePickerController *imagePickerController;
     Boolean restart;
     NSString *imageKey;
 }
--(IBAction)startButtonPressed:(UIButton *)sender;
--(void) startingGame;
+-(IBAction)continueButtonPressed:(UIButton *)sender;
 -(IBAction)startButton:(UIButton *)sender;
 -(IBAction)restartButtonPressed:(UIButton *)sender;
 -(IBAction)changeColumnNumber:(UIStepper *) sender;

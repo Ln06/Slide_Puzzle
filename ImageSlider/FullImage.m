@@ -21,7 +21,6 @@
 {
     self = [super initWithNibName:@"FullImage" bundle:nil];
     if (self) {
-        NSLog(@"cheeeeeaaater");
         photo = image;
     }
     return self;

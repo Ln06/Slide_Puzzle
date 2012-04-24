@@ -16,7 +16,6 @@
 
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
--(void) restartGame;
 -(id) initWithSize:(int) x:(int) y:(UIImage *) img;
 - (FullImage *) fullImage;
 -(void)showFullImage;
